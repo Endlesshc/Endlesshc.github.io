@@ -1,0 +1,22 @@
+/* ==|== import libs, functions, variables ================================== */
+@import 'compass',
+        'partials/functions',
+        'partials/variables',
+        'partials/animations';
+/* ========================================================================== */
+
+/* ==|== import mixins ====================================================== */
+@import 'partials/mixins/bounded-inline-image',
+        'partials/mixins/patched-inline-image',
+        'partials/mixins/border-opacity';
+/* ========================================================================== */
+
+/* ==|== import core ======================================================== */
+@import 'partials/core/reset',
+        'partials/core/normalize',
+        'partials/core/non-semantic-helper-classes',
+        'partials/core/header', 
+        'partials/core/mediaqueries',
+        'partials/pages/page',
+        'partials/core/footer';
+/* ========================================================================== */

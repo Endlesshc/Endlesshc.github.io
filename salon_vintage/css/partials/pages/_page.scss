@@ -1,0 +1,151 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+h2, h3, h4, h5, h6, p, a{
+  font-family:$lato;
+}
+
+body{
+  background:black;
+  height:1800px;
+  background:url(../img/common/pattern.png);
+  background-size:10%;
+  background-repeat:repeat;
+  header{
+    // background:url(../img/common/header.jpg);
+    height:100vh;
+    background-size:cover;
+    #black{
+      width:100%;
+      height:100vh;
+      position:absolute;
+      top:0;
+      left:0;
+      background:rgba(0,0,0,0.8);
+    }
+    h1{
+      text-align:center;
+      position:absolute;
+      top:50%;
+      left:50%;
+      color:$white;
+      font-size:40px;
+      margin-top:-127px;
+      margin-left:-108.5px;
+      z-index:1;
+    }
+  }
+  #description{
+    padding:30px 100px;
+    color:white;
+    font-family:$lato;
+    font-weight:100;
+    z-index:2;
+    h2{
+      padding-bottom:20px;
+      color:$blue;
+    }
+  }
+}
+
+
+/* ========================================================================== */
+/* ================================= MOBILE ================================= */
+/* ========================================================================== */
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) {
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+
+}
+/* IPHONE 6+ -------------- */
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 3) {
+
+}
+
+
+@media only screen and (max-width : 767px) {
+
+}
+@media only screen and (max-width : 730px) {
+
+}
+@media only screen and (min-device-width : 400px) and (max-device-width : 600px){
+
+}
+@media only screen and (min-device-width : 450px) and (max-device-width : 500px){
+
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+
+
+}
+/* ========================================================================== */
+/* ============================== INTERMEDIATE ============================== */
+/* ========================================================================== */
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+}
+
+/* iPads (portrait) ----------- */
+// @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+//   .box-content{
+//     display:block;
+//   }
+// }
+/**********
+iPad 3
+**********/
+// @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+//   .box-content{
+//     display:block;
+//   }
+// }
+
+// @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+//   .box-content{
+//     display:block;
+//   }
+//   .content-informations{
+//     background:rgba(255,255,255, 0.5);
+//     width:100%;
+//     margin:0 auto;
+//     padding:120px 20px;
+//   }
+// }
+
+/* ========================================================================== */
+/* ================================== WIDE ================================== */
+/* ========================================================================== */
+@media only screen  and (min-width : 1024px) {
+
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) and (max-width : 1281px){
+
+}
+
+/* ========================================================================== */
+/* ================================= MAXIMAL ================================ */
+/* ========================================================================== */
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+
+}
+/* Large screens ----------- */
+@media only screen  and (min-width : 1440px) and (max-width : 2560px) {
+
+}
+
+/* ========================================================================== */
+/* ================================= PRINT ================================== */
+/* ========================================================================== */
