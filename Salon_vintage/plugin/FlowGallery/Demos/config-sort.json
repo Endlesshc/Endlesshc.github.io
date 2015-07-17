@@ -1,0 +1,94 @@
+[
+	{
+	    "type": "photo",
+	    "category": "Category One",
+	    "sort": {
+	    	"number": "20",
+	    	"letter": "n"
+	    },
+	    "thumbnail": "media/photos/thumbs/pic1.jpg",
+	    "source": "media/photos/pic1.jpg",
+	    "title": "Example of Photo",
+	    "description": "Number: 20 <br> Letter: n"
+	},
+
+	{
+	    "type": "video",
+	    "category": "Category Three",
+	    "sort": {
+	    	"number": "10.05",
+	    	"letter": "a"
+	    },
+	    "thumbnail": "media/videos/thumbs/birds.jpg",
+	    "mp4": "media/videos/birds.mp4",
+	    "ogv": "media/videos/birds.ogv",
+	    "webm": "media/videos/birds.webm",
+	    "title": "Example of Video",
+	    "description": "Number: 10.05 <br> Letter: a"
+	},
+
+	{
+	    "type": "audio",
+	    "category": "Category One, Category Two",
+	    "sort": {
+	    	"number": "2",
+	    	"letter": "b"
+	    },
+	    "mp3": "media/audios/symphony-9.mp3",
+	    "ogg": "media/audios/symphony-9.ogg",
+	    "thumbnail": "media/audios/thumbs/piano.jpg",
+	    "title": "Example of Audio",
+	    "description": "Number: 2 <br> Letter: b"
+	},
+
+	{
+	    "type": "photo",
+	    "category": "Category Two",
+	    "sort": {
+	    	"number": "35",
+	    	"letter": "g"
+	    },
+	    "thumbnail": "media/photos/thumbs/pic3.jpg",
+	    "source": "media/photos/pic3.jpg",
+	    "title": "Example of Photo",
+	    "description": "Number: 35 <br> Letter: g"
+	},
+
+	{
+	    "type": "vimeo",
+	    "category": "Category Three",
+	    "sort": {
+	    	"number": "50.2",
+	    	"letter": "z"
+	    },
+	    "source": "https://vimeo.com/45878034",
+	    "title": "View from the ISS at Night",
+	    "description": "Number: 50.2 <br> Letter: z"
+	},
+
+	{
+	    "type": "photo",
+	    "category": "Category Three",
+	    "sort": {
+	    	"number": "60",
+	    	"letter": "w"
+	    },
+	    "thumbnail": "media/photos/thumbs/pic5.jpg",
+	    "source": "media/photos/pic5.jpg",
+	    "title": "Example of Photo",
+	    "description": "Number: 60 <br> Letter: w"
+	},
+
+	{
+	    "type": "audio",
+	    "sort": {
+	    	"number": "24",
+	    	"letter": "c"
+	    },
+	    "thumbnail": "media/audios/thumbs/clarinet.jpg",
+	    "mp3": "media/audios/symphony-9.mp3",
+	    "ogg": "media/audios/symphony-9.ogg",
+	    "title": "Example of Audio",
+	    "description": "Number: 24.6 <br> Letter: c"
+	}
+]
