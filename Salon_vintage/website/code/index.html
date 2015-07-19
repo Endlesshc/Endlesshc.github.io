@@ -78,13 +78,66 @@
         <div id="main-features">
             <div class="featured-box tattoo">
                 <i class="icon-tattoo"></i>
+                <div class="tattoo-bg zoom-out"></div>
             </div>
-            <div class="featured-box haircuts">
+            <div class="featured-box haircut">
                 <i class="icon-haircut"></i>
+                <div class="haircut-bg zoom-out"></div>
             </div>
-            <div class="featured-box nails">
+            <div class="featured-box nail">
                 <i class="icon-nails"></i>
+                <div class="nail-bg zoom-out"></div>
             </div>
+        </div>
+        <div id="main-features-content">
+            <div class="main-features-content-box tattoos">
+                <div class="mfcb-wrapper">
+                    <h2>Tatouages</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit magnam distinctio veniam sunt, nemo ratione iure perferendis quia ad error quaerat architecto aliquam eius modi odit fuga. Suscipit modi, nostrum.</p>
+                </div>    
+            </div>
+            <div class="main-features-content-box haircuts">
+                <div class="mfcb-wrapper">
+                    <h2>Coiffure</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit magnam distinctio veniam sunt, nemo ratione iure perferendis quia ad error quaerat architecto aliquam eius modi odit fuga. Suscipit modi, nostrum.</p>
+                </div>
+            </div>
+            <div class="main-features-content-box nails">
+                <div class="mfcb-wrapper">
+                    <h2>Esthétique</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit magnam distinctio veniam sunt, nemo ratione iure perferendis quia ad error quaerat architecto aliquam eius modi odit fuga. Suscipit modi, nostrum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact-us">
+        <div id="form">
+        <h3>Contact/<span>@Tattoo</span></h3>
+        <span class="input input--minoru">
+            <input class="input__field input__field--contact-form" type="text" id="input-1" />
+            <label class="input__label input__label--contact-form" for="input-1">
+                <span class="input__label-content input__label-content--contact-form">Nom</span>
+            </label>
+        </span>
+        <span class="input input--minoru">
+            <input class="input__field input__field--contact-form" type="text" id="input-2" />
+            <label class="input__label input__label--contact-form" for="input-2">
+                <span class="input__label-content input__label-content--contact-form">Courriel</span>
+            </label>
+        </span>
+        <span class="input input--minoru">
+            <input class="input__field input__field--contact-form" type="text" id="input-3" />
+            <label class="input__label input__label--contact-form" for="input-3">
+                <span class="input__label-content input__label-content--contact-form">Téléphone</span>
+            </label>
+        </span>
+        <span>
+            <textarea placeholder="Message / Commentaires"></textarea>
+            <label>
+                <span class="input__label-content input__label-content--contact-form">Message</span>
+            </label>
+        </span>
+        <input type="submit" value="Soumettre" class="submit-button">
         </div>
     </section>
     <!--[if lt IE 8 ]>
@@ -109,6 +162,41 @@
       }
     }
   });
+</script>
+<script>
+    (function() {
+        // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+        if (!String.prototype.trim) {
+            (function() {
+                // Make sure we trim BOM and NBSP
+                var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                String.prototype.trim = function() {
+                    return this.replace(rtrim, '');
+                };
+            })();
+        }
+
+        [].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+            // in case the input is already filled..
+            if( inputEl.value.trim() !== '' ) {
+                classie.add( inputEl.parentNode, 'input--filled' );
+            }
+
+            // events:
+            inputEl.addEventListener( 'focus', onInputFocus );
+            inputEl.addEventListener( 'blur', onInputBlur );
+        } );
+
+        function onInputFocus( ev ) {
+            classie.add( ev.target.parentNode, 'input--filled' );
+        }
+
+        function onInputBlur( ev ) {
+            if( ev.target.value.trim() === '' ) {
+                classie.remove( ev.target.parentNode, 'input--filled' );
+            }
+        }
+    })();
 </script>
 
 </html>
