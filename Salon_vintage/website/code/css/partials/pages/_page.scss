@@ -4,6 +4,12 @@
 h2, h3, h4, h5, h6, p, a{
   font-family:$lato;
 }
+h2{
+  color:white;
+  font-size:35px;
+  font-weight:400;
+  padding-bottom:20px;
+}
 
 body{
   background:black;
@@ -62,14 +68,33 @@ body{
       width:33.333333333%;
       position:relative;
       transition:all 0.6s;
-      &:hover{
-        height:110%;
-        margin-top:-40px;
-        filter: blur(5px);
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
+      overflow:hidden;
+       .zoom-out{
+        position:absolute;
+        width:100%;
+        height:100%;
+        
+        transition:ease-out 0.2s;
+        
+        
+        transition:ease-out 0.3s;
+        &:hover{
+          -webkit-animation: animatedBackground 1s ease-out 1;
+          -moz-animation: animatedBackground 1s ease-out 1;
+          animation: animatedBackground 1s ease-out 1;
+          -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          transition:ease-out 0.3s;
+        }
+        &.tattoo-bg{
+          background:url(../img/common/feature1.jpg);
+        }
+        &.haircut-bg{
+          background:url(../img/common/feature2.jpg);
+        }
+        &.nail-bg{
+          background:url(../img/common/feature3.jpg);
+        }
       }
       i{
         color:white;
@@ -80,16 +105,90 @@ body{
         margin-top:-75px;
         margin-left:-75px;
         position:absolute;
+        z-index:2;
       }
-      &.tattoo{
-        background:url(../img/common/feature1.jpg);
-      }
+    }
+  }
+  .displayed{
+    display:block !important;
+  }
+  #main-features-content{
+    height:350px;
+    width:100%;
+    .main-features-content-box{
+      width:100%;
+      height:100%;
       &.haircuts{
-        background:url(../img/common/feature2.jpg);
-
+        background:$blue;
+        display:none;
+      }
+      &.tattoos{
+        background:$red;
+        display:none;
       }
       &.nails{
-        background:url(../img/common/feature3.jpg);
+        background:white;
+        display:none;
+        h2{
+          color:black;
+        }
+      }
+      .mfcb-wrapper{
+        width:60%;
+        margin-left:40%;
+        padding-top:60px;
+      }
+    }
+  }
+  #contact-us{
+    min-height:600px;
+    background:url(../img/common/map.jpg);
+    background-size:100%;
+    label{
+      color:white;
+      font-family:$lato;
+      font-weight:300;
+      padding: 0.75em 0;
+      font-size: 70.25%;
+      -webkit-font-smoothing: antialiased;
+    }
+    textarea{
+      border:1px solid $dark-gray;
+      background:$darker-gray;
+      resize:none;
+      width:80%;
+      height:200px;
+      color:white;
+      font-family:$lato;
+      font-weight:100;
+      font-size:15px;
+      padding:10px;
+    }
+    #form{
+      width:50%;
+      padding:100px;
+      .submit-button{
+        background:white;
+        height:60px;
+        width:80%;
+        color:black;
+        font-family:$lato;
+        font-weight:100;
+        font-size:15px;
+        text-align:center;
+        margin-top:20px;
+      }
+
+      h3{
+        font-family:$lato;
+        font-weight:100;
+        font-size:30px;
+        color:white;
+        padding-top:30px;
+        margin-bottom:20px;
+        span{
+          font-size:16px;
+        }
       }
     }
   }
