@@ -1,0 +1,14 @@
+@mixin border-opacity($color, $opacity) {
+	$opacity: $opacity / 100;
+ 
+	// Unsupporting browsers get this
+	border-color: $color;
+ 
+	// Browsers that support RGBA will get this instead
+	border-color: rgba($color, $opacity);
+ 
+	// Prevent the element's background from reaching the edge of the border
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+}
