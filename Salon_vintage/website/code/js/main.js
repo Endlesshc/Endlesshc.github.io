@@ -20,6 +20,18 @@ $(document).scroll(function () {
      $('.back-to-top-arrow').fadeOut();
     }
 });
+$(document).ready(function() {
+      $(".zoom-out").css({"background-size":"100%"})
+      $('.zoom-out').mouseenter(function(e) {
+           $(this).animate({
+               "background-size":"120%"
+         }, 80 );
+      }).mouseleave(function(e) {
+           $(this).animate({
+               "background-size":"100%"
+         }, 80 );
+      });
+   });
 
 
 $(function(){
@@ -56,7 +68,7 @@ $(function(){
 /*!
  * classie - class helper functions
  * from bonzo https://github.com/ded/bonzo
- * 
+ *
  * classie.has( elem, 'my-class' ) -> true/false
  * classie.add( elem, 'my-new-class' )
  * classie.remove( elem, 'my-unwanted-class' )
