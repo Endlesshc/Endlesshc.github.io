@@ -112,32 +112,51 @@
     </section>
     <section id="contact-us">
         <div id="form">
-        <h3>Contact/<span>@Tattoo</span></h3>
-        <span class="input input--minoru">
-            <input class="input__field input__field--contact-form" type="text" id="input-1" />
-            <label class="input__label input__label--contact-form" for="input-1">
-                <span class="input__label-content input__label-content--contact-form">Nom</span>
-            </label>
-        </span>
-        <span class="input input--minoru">
-            <input class="input__field input__field--contact-form" type="text" id="input-2" />
-            <label class="input__label input__label--contact-form" for="input-2">
-                <span class="input__label-content input__label-content--contact-form">Courriel</span>
-            </label>
-        </span>
-        <span class="input input--minoru">
-            <input class="input__field input__field--contact-form" type="text" id="input-3" />
-            <label class="input__label input__label--contact-form" for="input-3">
-                <span class="input__label-content input__label-content--contact-form">Téléphone</span>
-            </label>
-        </span>
-        <span>
-            <textarea placeholder="Message / Commentaires"></textarea>
-            <label>
-                <span class="input__label-content input__label-content--contact-form">Message</span>
-            </label>
-        </span>
-        <input type="submit" value="Soumettre" class="submit-button">
+              <h3>Contact/@<span class="selected-service"></span></h3>
+              <form id="nl-form" class="nl-form">
+      		J'aimerais rejoindre le service
+      		<select class="service-select">
+      			<option value="1" class="general-opt" selected>  général</option>
+      			<option value="2" class="tattoo-opt">de tatouages</option>
+      			<option value="3" class="haircut-opt">de coiffure</option>
+      			<option value="4" class="nail-opt">d'esthétique</option>
+      		</select>
+      		<div class="nl-overlay"></div>
+      	</form>
+              <span class="input input--minoru">
+                  <input class="input__field input__field--contact-form" type="text" id="input-1" />
+                  <label class="input__label input__label--contact-form" for="input-1">
+                      <span class="input__label-content input__label-content--contact-form">Nom</span>
+                  </label>
+              </span>
+              <span class="input input--minoru">
+                  <input class="input__field input__field--contact-form" type="text" id="input-2" />
+                  <label class="input__label input__label--contact-form" for="input-2">
+                      <span class="input__label-content input__label-content--contact-form">Courriel</span>
+                  </label>
+              </span>
+              <span class="input input--minoru">
+                  <input class="input__field input__field--contact-form" type="text" id="input-3" />
+                  <label class="input__label input__label--contact-form" for="input-3">
+                      <span class="input__label-content input__label-content--contact-form">Téléphone</span>
+                  </label>
+              </span>
+              <span>
+                  <textarea placeholder="Message / Commentaires"></textarea>
+                  <label>
+                      <span class="input__label-content input__label-content--contact-form">Message</span>
+                  </label>
+              </span>
+              <input type="submit" value="Soumettre" class="submit-button">
+        </div>
+        <div id="company-info">
+             <img src="img/common/logo-color.png" alt="Vintage Tatouage et Coiffure">
+             <ul>
+                   <li>2212, Boulevard Guillaume-Couture,</li>
+                   <li>Lévis, QC G6W 3H7</li>
+                   <li>(418) 903-1700</li>
+                   <li>vintage@courriel.com</li>
+             </ul>
         </div>
     </section>
     <!--[if lt IE 8 ]>
@@ -197,6 +216,9 @@
             }
         }
     })();
+</script>
+<script>
+      var nlform = new NLForm( document.getElementById( 'nl-form' ) );
 </script>
 
 </html>

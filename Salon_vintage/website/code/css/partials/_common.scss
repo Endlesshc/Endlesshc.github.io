@@ -3,7 +3,8 @@
         'partials/functions',
         'partials/variables',
         'partials/animations',
-        'partials/input';
+        'partials/input',
+        'partials/select';
 /* ========================================================================== */
 
 /* ==|== import mixins ====================================================== */
@@ -16,7 +17,7 @@
 @import 'partials/core/reset',
         'partials/core/normalize',
         'partials/core/non-semantic-helper-classes',
-        'partials/core/header', 
+        'partials/core/header',
         'partials/core/mediaqueries',
         'partials/pages/page',
         'partials/core/nav',
