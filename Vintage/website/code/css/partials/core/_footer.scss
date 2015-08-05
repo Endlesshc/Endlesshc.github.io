@@ -1,0 +1,17 @@
+/* ========================================================================== */
+/* =================================== ALL ================================== */
+/* ========================================================================== */
+
+    footer.main .credits .kimoby {
+        color: #414141; float: left; font-size: pem( $xsTextContext ); text-transform: uppercase;
+
+        span { font-size: 1px; }
+
+        a {
+            //@include bounded-inline-image( '/common/logo.png', $xsTextContext );
+            display: inline-block; margin-left: pem( 10, $xsTextContext );
+
+        }
+
+        .tag { float: left; margin-top: pem( 3, $xsTextContext ); }
+    }

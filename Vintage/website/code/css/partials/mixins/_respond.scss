@@ -1,0 +1,25 @@
+$fixMqs: false !default;
+
+@mixin respond-min( $width ) {
+    @if $fixMqs {
+        @if $fixMqs >= $width {
+            @content;
+        }
+    } @else {
+        @media only screen and ( min-width: $width ) {
+            @content;
+        }
+    }
+}
+
+@mixin respond-max( $width ) {
+    @if $fixMqs {
+        @if $fixMqs <= $width {
+            @content;
+        }
+    } @else {
+        @media only screen and ( max-width: $width ) {
+            @content;
+        }
+    }
+}
