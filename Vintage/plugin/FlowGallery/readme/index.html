@@ -1,0 +1,929 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Flow Gallery Documentation</title>
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="assets/prettify/prettify.css" type="text/css" media="screen, projection" />
+    <style type="text/css" media="screen">
+        p, table, hr, .box { margin-bottom:25px; }
+        .box p { margin-bottom:10px; }
+        h4 { font-weight: bold;}
+        pre {
+            padding: 20px !important;
+            border: 1px solid #ccc !important;
+            background: #f6f6f7;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="container">
+
+        <h3 class="center alt">&ldquo;Flow Gallery&rdquo; Documentation by &ldquo;Nilok Bose&rdquo; v1.6</h3>
+
+        <hr>
+
+        <h1 class="center">&ldquo;Flow Gallery&rdquo;</h1>
+
+        <div class="borderTop">
+            <div class="span-6 colborder info prepend-1">
+                <p class="prepend-top">
+                    <strong>
+                    Created: 11 March, 2015<br>
+                    Updated: 5 May, 2015<br>
+                    By: Nilok Bose<br>
+                    Email: <a href="mailto:cosmocoder@gmail.com">cosmocoder@gmail.com</a>
+                    </strong>
+                </p>
+            </div><!-- end div .span-6 -->
+
+            <div class="span-12 last">
+                <p class="prepend-top append-0">Thank you for purchasing my item. If you have any questions that are beyond the scope of this help
+                file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/cosmocoder">here</a>. Thanks so much!
+                </p>
+            </div>
+        </div><!-- end div .borderTop -->
+
+        <hr>
+
+        <h2 id="toc" class="alt">Table of Contents</h2>
+        <ol class="alpha">
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#howto">How to Use</a>
+            	<ul>
+                    <li><a href="#jsonSetup">JSON Setup</a></li>
+            		<li><a href="#multimedia">Multimedia Files</a></li>
+                    <li><a href="#htmlSetup">HTML Setup</a></li>
+                    <li><a href="#cssSetup">CSS Setup</a></li>
+                    <li><a href="#jsSetup">Javascript Setup</a></li>
+                    <li><a href="#keyboard">Keyboard Shortcuts</a></li>
+                    <li><a href="#api">API Functions</a></li>
+            		<li><a href="#examples">Examples</a></li>
+            	</ul>
+            </li>
+            <li><a href="#cssFiles">CSS Files</a></li>
+            <li><a href="#javascript">JavaScript Files</a></li>
+            <li><a href="#php">PHP Files</a></li>
+        </ol>
+
+        <hr>
+
+
+
+        <h2 id="intro">A) Introduction - <a href="#toc">top</a></h2>
+
+        <p>Flow Gallery is a jQuery plugin based multimedia HTML5 gallery enabling you to showcase your photos/audio/video in a modern and sleek interface. You have the option of arranging your gallery items in either columns or rows based grid. Along with photos you can choose to display your own self-hosted audio/video files or videos from Youtube/Vimeo/Dailymotion. The gallery features a fully responsive design and can fit in any screen size ranging from mobile phones to desktop browsers. The gallery is also optimized for retina and touch screens and provides the feel of a native app.</p>
+
+        <p>Flow Gallery plays audio/video using HTML5 in supported browsers and fallbacks to Flash in older browsers. You can pass only a mp4 file for video and mp3 file for audio or pass all the necessary formats for the widest possible support of native HTML5 playback. Whatever you choose to do the player will work in both modern and old browsers (with suitable fallbacks where necessary).</p>
+
+        <p>If you want to test this item locally then keep one thing in mind. On Chrome, Opera and IE local ajax requests are not
+           performed by default, so there the JSON file that contains the gallery items' details, will not load. You have to either enable local ajax requests for these browsers or test the gallery through a local server environment like XAMPP, MAMP, WAMP or LAMP. There are no such complications in Firefox and Safari. Also if you choose to scan a folder of photos, or scan for EXIF data of photos then a server environment will be required as these functionalities depend on php which requires a server. The gallery demos provided with this package will require a server environment to perform as intended.
+        </p>
+
+        <p><strong>NOTE:</strong> Most of the gallery demos will not work properly unless you provide a valid Youtube API Key, which is needed since as of version 1.4 the plugin uses Youtube API v3. Instructions for obtaining an API Key have been given in the <strong>Javascript Setup</strong> section.</p>
+
+
+
+        <hr>
+
+
+
+        <h2 id="howto">B) How to Use - <a href="#toc">top</a></h2>
+
+        <h3 id="jsonSetup">JSON setup</h3>
+
+        <p>To make the gallery work you will first need to create a json file that holds all the information for the items. You can either create the json beforehand and place it in your server as a static file or you can generate it at runtime (for example, using PHP and MYSQL). In either case you can provide the url to the json file (or the server-side script that generates it) in the plugin options (more on that later). You even have the option of providing the gallery data as a javascript object (with the same structure as the json) when initializing the plugin. </p>
+
+        <p>An example block of json code, containing details of the playlist items, is below:</p>
+
+<pre class="prettyprint lang-javascript">
+[
+     {
+        "type": "photo",
+        "category": "Category One",
+        "thumbnail": "media/photos/thumbs/pic1.jpg",
+        "source": "media/photos/pic1.jpg",
+        "title": "Example of Photo",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "link": "http://google.com"
+    },
+
+    {
+        "type": "audio",
+        "category": "Category One, Category Two",
+        "mp3": "media/audios/symphony-9.mp3",
+        "ogg": "media/audios/symphony-9.ogg",
+        "thumbnail": "media/audios/thumbs/piano.jpg",
+        "title": "Example of Audio",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+
+    {
+        "type": "video",
+        "category": "Category Three",
+        "thumbnail": "media/videos/thumbs/birds.jpg",
+        "mp4": "media/videos/birds.mp4",
+        "ogv": "media/videos/birds.ogv",
+        "webm": "media/videos/birds.webm",
+        "mobileMp4": "media/videos/birds-mobile.mp4",
+        "title": "Example of Video",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    },
+
+     {
+     "type": "youtube",
+     "category": "Category Two",
+     "source": "https://www.youtube.com/watch?v=abcdefghij",
+     "title": "Youtube Video"
+     },
+
+     {
+     "type": "vimeo",
+     "category": "Category Three",
+     "source": "https://vimeo.com/12345678",
+     "title": "Vimeo Video"
+     },
+
+     {
+     "type": "dailymotion",
+     "category": "Category One",
+     "source": "https://dai.ly/abcdef",
+     "title": "Dailymotion Video"
+     }
+]
+</pre>
+
+        <p>In the above code block it has been illustrated how to supply the details for the various media types for the gallery. The usage of each tag in the code block is explained below.</p>
+
+        <ul>
+            <li>
+                <code>type</code>
+                <p>This tag, as is evident, describes the type of media item. Available values for this tag are <strong>photo</strong>, <strong>audio</strong>, <strong>video</strong>, <strong>youtube</strong>, <strong>vimeo</strong> and <strong>dailymotion</strong>.
+                </p>
+            </li>
+
+            <li>
+                <code>category</code>
+                <p>Here you have to mention the category name to which this item belongs to. An item can belong to more than one category and in that case, as illustrated above, you have to separate the category names with commas. Please note that the category tag is totally optional and you can omit it if you don't want to filter items based on custom categories.</p>
+            </li>
+
+
+            <li>
+                <code>mp4</code>, <code>webm</code>, <code>ogv</code>
+                <p>For video items only the mp4 format is mandatory, but if you want to have native HTML5 playback in the widest possible range of browsers then you will also need to supply the webm and ogv formats of the video. All these tags are used to hold the url's for the corresponding video formats. If you use relative url's then they should be relative to the html file where the gallery is embedded. Ensure that your file names do not have special or accented characters since they get encoded during data transfers from the front-end to the backend (or vice-versa) and leads to the file name not being recognized. Also there are discrepancies between various servers as to how they handle special characters in file names. So avoid special characters in file names at all costs.
+                </p>
+            </li>
+
+            <li>
+                <code>mobileMp4</code>
+                <p>You can choose to serve low resolution videos to mobile devices, by enabling an option in the plugin settings. In such cases the url to the low resolution video should be passed to this tag.
+                </p>
+            </li>
+
+            <li>
+                <code>mp3</code>, <code>ogg</code>
+                <p>For audio items only the mp3 format is mandatory, but to support HTML5 playback in Firefox and Opera you should also provide the ogg format for the audio. These tags are used to hold the url's to the corresponding audio formats. If you use relative url's then they should be relative to the html file where the gallery is embedded. As mentioned before the file names should not have special characters.</p>
+            </li>
+
+            <li>
+                <code>source</code>
+                <p>This tag contains the path to the large version of the image which will be displayed in a modal overlay box for photo items. For youtube/vimeo/dailymotion/ items you provide the necessary url through this tag. For youtube videos the url has to have the format &ndash; <strong>http://www.youtube.com/watch?v=abcdefghijk</strong>. For vimeo videos the url format should be &ndash; <strong>http://vimeo.com/12345678</strong>. For dailymotion videos the url format should be &ndash; <strong>http://dai.ly/abcdef</strong>.</p>
+            </li>
+
+            <li>
+                <code>thumbnail</code>
+                <p>This tag contains the path to the thumbnail image file that will be displayed in the gallery grid. You have the option to leave out this tag for Youtube/Vimeo/Dailymotion videos is which case the thumbnails for the videos will be pulled from Youtube/Vimeo/Dailymotion.</p>
+            </li>
+
+            <li>
+                <code>title</code>
+                <p>The <code>title</code> tag is used to hold the text for the title that will be shown for the item. If you need to enter special characters in your <code>title</code> tags then don't enter them as such. You must escape these characters with a backslash ( \ ). You have the option to leave out the title for Youtube/Vimeo/Dailymotion videos is which case the titles for the videos will be pulled from Youtube/Vimeo/Dailymotion.
+                </p>
+            </li>
+
+            <li>
+                <code>description</code>
+                <p>Here you have to enter a short description (like a caption) of the item. You have the option to leave out the description for Youtube/Vimeo/Dailymotion videos is which case the descriptions for the videos will be pulled from Youtube/Vimeo/Dailymotion. </p>
+            </li>
+
+            <li>
+                <code>link</code>
+                <p>If you want the gallery item to act as a link to an external page then use this tag to provide the url to that page. Note that for "card" style the entire thumbnail will act as the link, and for "tile" style the link button will appear on hover over the thumbnail, replacing the button to open the lightbox.</p>
+            </li>
+        </ul>
+
+
+        <p>If you plan to have custom sorting for the gallery items then you can pass the sort parameters in the json. An example block of code is shown below:</p>
+
+<pre class="prettyprint lang-javascript">
+ {
+    "type": "photo",
+    "sort": {
+        "some number": "20",
+        "some letter": "n"
+    },
+    "thumbnail": "media/photos/thumbs/pic1.jpg",
+    "source": "media/photos/pic1.jpg",
+    "title": "Example of Photo",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+}
+</pre>
+
+        <p>As you can see the <code>sort</code> tag is used to pass all the custom sorting parameters. You can have any number of sorting parameters which can be either numeric or alphabetic. If you pass numeric values then they can be either integers or floating point numbers.</p>
+
+        <p>Flow Gallery also supports gallery albums or sets, which means that you can display your items that are grouped into albums or sets. For this you have to slightly alter the JSON structure. To have albums in your gallery you must write the JSON code like: </p>
+
+<pre class="prettyprint lang-javascript">
+{
+    "albums": [
+        {
+            "title": "Some Album",
+            "thumbnail": "media/some-album.jpg",
+            "items": [
+                {
+                    "type": "photo",
+                    &hellip;
+                },
+
+                {
+                    "type": "video",
+                    &hellip;
+                },
+
+                {
+                    "type": "audio",
+                    &hellip;
+                }
+            ]
+        },
+
+
+        {
+            "title": "Another Album",
+            "items": [
+                {
+                    "type": "photo",
+                    &hellip;
+                },
+
+                {
+                    "type": "photo",
+                    &hellip;
+                },
+
+                {
+                    "type": "vimeo",
+                    &hellip;
+                }
+            ]
+        }
+    ]
+}
+</pre>
+
+        <p>As you can see all the gallery data is contained inside the <code>albums</code> tag which is actually an array holding all the albums that are to be shown. The <code>title</code> tag holds the title that you want for the album and the <code>thumbnail</code> tag is optional and allows you to provide a custom cover thumbnail for your album. If the <code>thumbnail</code> tag is absent then the plugin will use the thumbnail of the first item in the album as the cover picture.</p>
+
+
+
+        <h3 id="multimedia">Multimedia files</h3>
+
+        <p>As already stated, Flow Gallery by default will use HTML5 for playback. For browsers that do not support HTML5 audio or video
+           playback, fallback to Flash and Silverlight will be enabled. Now different browsers require different file formats for native playback of HTML5 audio and video. For audio you must upload a mp3 version of the file which is supported by Safari, Chrome and IE9+. You must upload an ogg version if you want to have native playback in Firefox and Opera. The ogg format is also supported by Chrome. But you can upload only the mp3 version and the player will use Flash to play the audio file in Firefox and Opera. Similarly for the case of video playback, if you want to have a wide range of browsers natively play the video, then you must upload mp4, webm and ogv versions of the video. But here also you can only upload a mp4 version (h.264) and the player will use Flash or Silverlight to play the video in browsers that do not support that format natively.
+        </p>
+
+        <p>If you use only mp4 (h.264) videos and find that when there is Flash fallback in unsupported browsers, the entire video needs to be downloaded before it can be watched, then the index of the mp4 file is placed at the end. To remedy this case use the utility <a href="http://renaun.com/blog/code/qtindexswapper/">QTIndexSwapper</a> on your mp4 files.</p>
+
+        <p>If you find that after uploading Flow Gallery to your server your browser is not able to play video files then you may need to
+           configure your server in order to enable it to stream video files. For an Apache server place the following code in an .htaccess file and place it at the root of your website.</p>
+
+<pre class="prettyprint">
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+</pre>
+
+        <p>On Windows/IIS servers, please follow Microsoft's instructions on how to add/edit MIME types on <a href="http://www.microsoft.com/technet/prodtechnol/windowsserver2003/library/IIS/eb5556e2-f6e1-4871-b9ca-b8cf6f9c8134.mspx">IIS6</a> and <a href="http://technet.microsoft.com/en-us/library/cc725608(v=ws.10).aspx">IIS7</a>.</p>
+
+        <p>If you are working with local files and plan to test Flash playback, make sure you go to the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html">Flash Security Settings</a> page and add your working directory.</p>
+
+
+
+        <h3 id="htmlSetup">HTML Setup</h3>
+
+        <p>Flow Gallery does not need ay special html code to get working. All necessary html code for the gallery is generated by the jquery plugin. You just need to have a container on which you initialize the plugin and which will house all the markup generated by the plugin. Also of course you need to reference all the necessary css and js files for the gallery in your html page.</p>
+
+
+        <h3 id="cssSetup">CSS Setup</h3>
+
+        <p>Flow Gallery also does not require any special css setup to work. All the styling required for the player to work is already
+           provided. You can modify the gallery's css file to change its look and feel to more to your taste. In the css file you are free to change the background colours and also icons. You can also change the width and height of most elements, but please be careful while doing so because in some cases the functionality of the gallery might be disrupted. So when you intend to do some major editing in the css file then be sure to check the outcome at every step in order to see if the gallery is continuing to work as intended.
+       </p>
+
+
+
+
+        <h3 id="jsSetup">Javascript Setup</h3>
+
+        <p>Flow Gallery is a jQuery plugin, so in order to activate the plugin call it like this</p>
+
+<pre class="prettyprint lang-javascript">
+&lt;script&gt;
+     $(document).ready(function() {
+         $('#my-gallery').flowGallery();
+     });
+&lt;/script&gt;
+</pre>
+
+        <p>Here <code>#my-gallery</code> is the id of the container inside which the gallery will be embedded. Needless to say, you can use any id of your choice on the container. When you initialize the plugin then you can use any standard css selector, that jQuery allows, in place of an id.</p>
+
+        <p>Note here that we are calling the plugin after the document ready event fires. If you follow best practices and load all
+           the js files at the bottom of the html file, just before the closing body tag, then you don't need to use the document ready
+           event to call the plugin. If you just leave it at that the gallery will work just fine with the default settings. But of
+           course you want more options to customize! Calling the plugin with options of your choice is very simple, and it will look something like this
+        </p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').flowGallery({
+    option1: 'value1',
+    option2: 'value2',
+    option3: 'value3'
+});
+</pre>
+
+        <p>Below all the plugin parameters with their default values are listed.</p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').flowGallery({
+    gridType: 'columns',
+    rowItemMinWidth: 170,
+    justifyLastRow: false,
+    columns: 4,
+    horizontalGutter: 20,
+    verticalGutter: 20,
+    shuffleItems: false,
+    albums: {
+        enterSpeed: 600,
+        enterAnimation: 'slideLeft',
+        enterInSequence: true,
+        sequenceDelay: 200,
+        style: 'tiled',
+        pageTransition: 'shrink'
+    },
+    items: {
+        enterSpeed: 600,
+        enterAnimation: 'fade',
+        enterInSequence: true,
+        sequenceDelay: 200,
+        style: 'card'
+    },
+    card: {
+        captionMaxHeight: 200,
+        alwaysShowCaption: true,
+        descriptionInCaption: true
+    },
+    alwaysShowThumbTitle: true,
+    thumbTitleAnimation: 'slide',
+    captionShowAnimation: 'slideUp',
+    captionAnimationSpeed: 400,
+    youtubeAPIKey: '',
+    useYoutubeThumbs: true,
+    useVimeoThumbs: true,
+    useDailymotionThumbs: true,
+    newWindowLinks: true,
+    loadItemChunks: true,
+    loadChunksOnScroll: false,
+    initialChunkSize: null,
+    chunkSize: 10,
+    enableDeepLinking: false,
+    enableSocialShare: true,
+    sharers: ['facebook', 'twitter', 'google', 'pinterest'],
+    showFileTypeIcons: true,
+    showGalleryMenuBar: true,
+    showFilterMenu: true,
+    showFileTypeFilters: true,
+    categoryFilters: [],
+    sortBy: ['title', 'type'],
+    sortOrder: 'ascending',
+    showSearchFilter: true,
+    searchBy: 'title',
+    layoutSpeed: 600,
+    showFullscreenButton: true,
+    fixMenuOnScroll: true,
+    menuFixOffset: 0,
+    overlay: {
+        autoplay: false,
+        itemTransition: 'shrink'
+    },
+    getExifData: false,
+    scanPhotoFolder: false,
+    photoFolder: '',
+    detectMobile: false,
+    configUrl: 'config.json',
+    configData: {},
+    enableCache: true,
+    cacheFolder: 'cache',
+    cacheFileName: 'config-cache.json',
+    cacheInterval: 10,
+    phpFolder: 'php',
+    onSetup: function() {},
+    onAlbumLoad: function(index) {},
+    onOverlayOpen: function(index) {},
+    onOverlayClose: function(index) {}
+});
+</pre>
+
+        <p>The function of each plugin parameter is described below.</p>
+
+
+        <h4>gridType</h4>
+        <p>Here you can choose between <code>columns</code> or <code>rows</code> type gallery grid.
+        </p>
+
+
+        <h4>rowItemMinWidth</h4>
+        <p>If you choose <code>rows</code> type grid then here you can set the minimum width, in px, for the gallery items that appear in a row.
+        </p>
+
+
+        <h4>justifyLastRow</h4>
+        <p>For <code>rows</code> type grid you have the option to justify the last row, which if enabled will always cause the items in the last row to be scaled up until they occupy total available width of the row. Note this may sometimes cause the thumbnail images to scale up significantly, especially if there are too few of them, so that the resulting images can become very blurry. Use this option with discretion. But note that if the plugin finds that the total width of the items in the last row is <strong>75%</strong> or more than the available width then the plugin will <strong>always</strong> justify the last row.</p>
+
+
+        <h4>columns</h4>
+        <p>If you choose the <code>columns</code> type grid then here you can set the number of columns that you want in the gallery. You can pass an integer here, in which case the gallery will use that number of columns for all screen sizes. Another option is to pass an object that will let the gallery know how many columns to use at what screen size. For this case the object needs to be in the following format:
+
+<pre class="prettyprint lang-javascript">
+columns: {320: 1, 480: 2, 720: 3, 960: 4, 1200: 5}
+</pre>
+        Here the properties of the object denote the minimum screen size (in px) at which to use the associated number of columns (the property value).</p>
+
+
+        <h4>horizontalGutter</h4>
+        <p>This parameter allows you to set the horizontal gutter/spacing between items.</p>
+
+
+        <h4>verticalGutter</h4>
+        <p>This parameter allows you to set the vertical gutter/spacing between items.</p>
+
+
+        <h4>shuffleItems</h4>
+        <p>If you enable this then the gallery will randomly order the items each time the page is loaded. This is disabled by default.</p>
+
+
+        <h4>albums</h4>
+        <p>A list of options when your gallery contains albums. Their functions are described as follows:</p>
+        <ul>
+            <li><strong>enterSpeed</strong> &ndash; set the animation speed (in ms) when the album thumbnails enter the page.</li>
+
+            <li><strong>enterAnimation</strong> &ndash; choose the animation that will be used to make the album thumbnail show up. Avilable options are <strong>fade</strong>, <strong>slideDown</strong>, <strong>slideLeft</strong>, <strong>slideRight</strong>, <strong>flipX</strong>, <strong>flipY</strong>, <strong>shrink</strong>, <strong>expand</strong>, <strong>swoop</strong>, <strong>whirl</strong>.</li>
+
+            <li><strong>enterInSequence</strong> &ndash; option to make the album thumbnails sequentially enter the page.</li>
+
+            <li><strong>sequenceDelay</strong> &ndash; if the thumbnails are entering sequentially then set the animation delay (in ms) between each thumbnail.</li>
+
+            <li><strong>style</strong> &ndash; choose from from either <code>stacked</code> or <code>tiled</code>.</li>
+
+            <li><strong>pageTransition</strong> - this option decides the animation to use when you transition from the album thumbnails page to the items page of an album. Available options are <strong>fade</strong>, <strong>slideUp</strong>, <strong>slideLeft</strong>, <strong>expand</strong>, <strong>shrink</strong>.</li>
+        </ul>
+
+
+        <h4>items</h4>
+        <p>A list of options for gallery items. Their functions are described as follows:</p>
+        <ul>
+            <li><strong>enterSpeed</strong> &ndash; set the animation speed (in ms) when the items enter the page.</li>
+
+            <li><strong>enterAnimation</strong> &ndash; choose the animation that will be used to make the item show up. Available options are <strong>fade</strong>, <strong>slideDown</strong>, <strong>slideLeft</strong>, <strong>slideRight</strong>, <strong>flipX</strong>, <strong>flipY</strong>, <strong>shrink</strong>, <strong>expand</strong>, <strong>swoop</strong>, <strong>whirl</strong>.</li>
+
+            <li><strong>enterInSequence</strong> &ndash; option to make the items sequentially enter the page.</li>
+
+            <li><strong>sequenceDelay</strong> &ndash; if the items are entering sequentially then set the animation delay (in ms) between each item.</li>
+
+            <li><strong>style</strong> &ndash; choose from from either <code>card</code> or <code>tile</code>.</li>
+        </ul>
+
+
+        <h4>card</h4>
+        <p>A list of options when you choose the <code>card</code> style for gallery items. Their functions are described as follows:</p>
+        <ul>
+            <li><strong>captionMaxHeight</strong> &ndash; set the maximum height of the caption area (in px) when it appears below the item thumbnail.</li>
+
+            <li><strong>alwaysShowCaption</strong> &ndash; enable this to show the title and description, which form the caption area, below the item thumbnail.</li>
+
+            <li><strong>descriptionInCaption</strong> &ndash; If this disabled then the description will not be shown in the caption area below the item thumbnail. The full caption, including description, will be visible by clicking a button.</li>
+        </ul>
+
+
+        <h4>alwaysShowThumbTitle</h4>
+        <p>This dictates if the title will be shown over the item thumbnail. If this is disabled then the title will show up on hover. Note that for touch-screen devices this option will always be enabled. Also when using the <code>card</code> style, if you enable the <code>alwaysShowCaption</code> option then the title will be never be shown over the thumbnail.
+        </p>
+
+
+        <h4>thumbTitleAnimation</h4>
+        <p>This option lets you choose the animation for showing the title over the thumbnail if you disable <code>alwaysShowThumbTitle</code>. Available options are <strong>fade</strong> and <strong>slide</strong>.
+        </p>
+
+
+        <h4>captionShowAnimation</h4>
+        <p>Here you can choose the animation for showing the caption area, for both "card" and "tile" style items, but note that if the <code>alwaysShowCaption</code> is enabled for "card" style then of course this option has no effect. The available animation effects are <strong>fade</strong>, <strong>slideUp</strong>, <strong>slideDown</strong>, <strong>pushUp</strong>, <strong>pushDown</strong>, <strong>expand</strong>, <strong>shrink</strong>, <strong>flipX</strong>, <strong>flipY</strong>.
+        </p>
+
+
+        <h4>captionAnimationSpeed</h4>
+        <p>Se the speed (in ms) for showing the caption area.
+        </p>
+
+
+        <h4>youtubeAPIKey</h4>
+        <p>As of version 1.4, the plugin uses Youtube API v3 to pull video thumbnails/titles/descriptions, for which you need to get an API key from Youtube. Go to this page for instructions - <a href="https://developers.google.com/youtube/registering_an_application" target="_blank">https://developers.google.com/youtube/registering_an_application</a>. Note that you will only need to get a API key that works from the browser and there is no need to bother with OAUth. You can also see this video (which fellow Codecanyon member <a href="http://codecanyon.net/user/ceasar" target="_blank">ceasar</a> has kindly created) to see how to create an API key - <a href="https://www.youtube.com/watch?v=pJSkp719HeE" target="_blank">https://www.youtube.com/watch?v=pJSkp719HeE</a>. If you provide your own thumbnails, titles and descriptions for the Youtube videos then the plugin makes no call to the Youtube API and there is no need to get an API key.</p>
+
+
+        <h4>useYoutubeThumbs</h4>
+        <p>Enable this option to pull thumbnails Youtube video thumbnails.
+        </p>
+
+
+        <h4>useVimeoThumbs</h4>
+        <p>Enable this option to pull thumbnails Vimeo video thumbnails.
+        </p>
+
+
+        <h4>useDailymotionThumbs</h4>
+        <p>Enable this option to pull thumbnails Dailymotion video thumbnails.
+        </p>
+
+
+        <h4>newWindowLinks</h4>
+        <p>Enable this option to open the links, that you provide in the JSON, to open in new windows/tabs.
+        </p>
+
+
+        <h4>loadItemChunks</h4>
+        <p>Enable this to load the gallery items in chunks instead of all at once on page load.
+        </p>
+
+
+        <h4>loadChunksOnScroll</h4>
+        <p>This option lets you choose between loading the item chunks either manually by clicking a button (that is generated), or automatically as the page is scrolled.
+        </p>
+
+
+        <h4>initialChunkSize</h4>
+        <p>If you want to load certain a number of items on page load then pass a numeric value to this parameter, or else set it to <code>null</code> to disable it (the default state).
+        </p>
+
+
+        <h4>chunkSize</h4>
+        <p>This specifies the number of items that will consist in a chunk.<p>
+
+
+        <h4>enableDeepLinking</h4>
+        <p>Enable this option to have deep linking support for gallery items. With this enabled the page's url will change each time an item is opened in the lightbox, and thus create a new entry in the browser's history. You can bookmark or share those item url's. This will work even when your gallery consists of albums.
+        </p>
+
+
+        <h4>enableSocialShare</h4>
+        <p>This option enables social sharing of items right within the gallery. An icon will show up on the items which when clicked will give you the option to share the item link to your specified group of social media sites.</p>
+
+
+        <h4>sharers</h4>
+        <p>Provide an array of social media sites to which sharing of items will be done. The supported social media sites that you can provide are <code>facebook</code>, <code>twitter</code>, <code>google</code>, <code>pinterest</code>.</p>
+
+
+        <h4>showFileTypeIcons</h4>
+        <p>By default the plugin displays appropriate media icons for each item (photo/audio/video). But you can turn off the showing of the icons, which is useful if your gallery contains only one type of item, say photos.</p>
+
+
+        <h4>showGalleryMenuBar</h4>
+        <p>This option lets you show/hide the gallery menu bar.</p>
+
+
+        <h4>showFilterMenu</h4>
+        <p>This option lets you show/hide the filter dropdown in the menu bar.</p>
+
+
+        <h4>showFileTypeFilters</h4>
+        <p>If you want to show filter buttons for filtering items based on their file or media type then enable this option.
+        </p>
+
+
+        <h4>categoryFilters</h4>
+        <p>Provide an array of category names from which corresponding filter button will be created. The category names should be exactly the same (case sensitive), as the ones that you provide in the JSON data.</p>
+
+
+        <h4>sortBy</h4>
+        <p>Provide an array of parameters based on which the items will be sorted. The plugin lets you sort items based on their <code>title</code> and <code>type</code> by default. In addition you can also sort based on custom parameters which you provide in the JSON data, that has been explained earlier. If you pass an empty array the sort dropdown will not be shown in the menu bar.
+        </p>
+
+
+        <h4>sortOrder</h4>
+        <p>You can choose to sort items in either ascending or descending order. Available options are <code>ascending</code> and <code>descending</code>.</p>
+
+
+        <h4>showSearchFilter</h4>
+        <p>Enable this option to the keyword based search filter in the menu bar.</p>
+
+
+        <h4>searchBy</h4>
+        <p>Pass the name of the parameter based on which the keyword searching will be done. Available options are <code>title</code> and <code>categories</code>. Note that you need to write at least two characters in the input field in order for the searching to start.</p>
+
+
+        <h4>layoutSpeed</h4>
+        <p>This option lets you set the animation speed by which items will be filtered or sorted.</p>
+
+
+        <h4>showFullscreenButton</h4>
+        <p>Enable this option to show the fullscreen button in th menu bar. Note that even if this option is enabled, the button will only show up in browsers that support the HTML5 Fullscreen API.</p>
+
+
+        <h4>fixMenuOnScroll</h4>
+        <p>You have the option of fixing the gallery menu bar at the top of the screen when you are scrolling the page or the container in which the gallery is embedded.</p>
+
+
+        <h4>menuFixOffset</h4>
+        <p>If you choose to enable the <code>fixMenuOnScroll</code> option then through this option you can pass a value (in px) by which the menu bar will be vertically offset from the top of the screen. This is helpful if you have some fixed header in your page.
+        </p>
+
+        <h4>overlay</h4>
+        <ul>
+            <li><strong>autoplay</strong> &ndash; if you want the audio/video files, including Youtube/Vimeo/Dailymotion videos to start playing when they show up in the lightbox/overlay then enable this option. Autoplay will not work in mobile devices since that is disabled by mobile device manufacturers.</li>
+
+            <li><strong>itemTransition</strong> &ndash; this lets you choose the animation effect for making the items show up inside the overlay/lightbox. The available effects are <strong>fade</strong>, <strong>slideLeft</strong>, <strong>slideDown</strong>, <strong>bounceLeft</strong>, <strong>bounceDown</strong>, <strong>expand</strong>, <strong>shrink</strong>.</li>
+        </ul>
+
+
+        <h4>getExifData</h4>
+        <p>This option lets you get the EXIF data from your jpg/jpeg photos.</p>
+
+
+        <h4>scanPhotoFolder</h4>
+        <p>Enable this option if you want to build you gallery by scanning a folder of photos. The photos in the folder can be jpg, jpeg, gif or png. You should also have another folder called <strong>thumbs</strong> inside this folder that will contain the thumbnails for your photos. The file names of the thumbnails should be the same as the photos. The names of the photos will be used as item titles in the gallery. You can create text files corresponding to each photo, and with the same name, that will contain the description for that item. So if for eg. the photo has the name my-pic.jpg, then the associated text file must have the name my-pic.txt. If you want to have albums then the parent folder must contain folders of photos which must have the structure that has been described above. The names of the album folders will be used as the album names in the gallery. Note that you can also let the gallery get EXIF data from your folder of photos.</p>
+
+
+        <h4>photoFolder</h4>
+        <p>In this setting you can pass the url to the folder which will be scanned for photos. If you use a relative url path then it should be relative to the html page in which the gallery is embedded.</p>
+
+
+        <h4>configUrl</h4>
+        <p>Here you can pass the url to the JSON file that contains all the gallery items' data. Note that you can also pass the url to a server side script that generates the JSON data dynamically.</p>
+
+
+        <h4>configData</h4>
+        <p>Instead of passing an url to a JSON you can also provide a javascript object that contains all the item's data. This javascript object needs to be structured exactly like the JSON that has been explained before. This option is useful if you are already obtaining all you items' data elsewhere, and will therefore prevent your page from an addition AJAX request to get the gallery data. Note the plugin will give precedence to <code>configUrl</code> and if that is empty then it will look at <code>configData</code>.</p>
+
+
+        <h4>enableCache</h4>
+        <p>You can enable this option to let the plugin cache all your items' data. This is useful when you gallery contains Youtube/Vimeo/Dailymotion video and you pulling their thumbnails/titles/descriptions or when you are scanning a folder of photos, or when you are extracting EXIF data from photos. Caching in the above scenarios will make the gallery load very fast and is highly recommended.</p>
+
+
+        <h4>cacheFolder</h4>
+        <p>Through this parameter you can specify the path to the folder where the cache checking/updating files (get-cache.php and update-cache.php) are located. The cache files that are generated are also placed in this folder.</p>
+
+
+        <h4>cacheFileName</h4>
+        <p>You can mention the unique name for the cache file for a particular instance of the plugin through this option. This allows you to have multiple cache files for multiple instances of the plugin in your entire site.</p>
+
+
+        <h4>cacheInterval</h4>
+        <p>Through this parameter you can specify for how long the gallery data will be cached, before it is again recreated. The time value mentioned here is in minutes. If you don't intend to alter the gallery items anytime soon then you can set a large value for this option. Note that if you update your gallery configuration in the future, including item configurations, then you will need to first delete the cache file from your server before the new settings take effect.</p>
+
+
+        <h4>phpFolder</h4>
+        <p>The plugin requires some php files in order to facilitate its inner workings. You will find all these files in the folder called "php". You can place this folder anywhere suitable in your server, or even rename it, in which case you can pass the correct url path to this folder through this setting. If you use a relative url then it should be relative to the html page where the player is embedded.</p>
+
+
+        <h4>detectMobile</h4>
+        <p>If your video items are of high definition then they may not play in some mobile devices (such as iPhone 3GS and lower). For such devices you have to use low quality videos. Also it probably is also better to serve low quality videos to all mobile devices because they have low bandwidth and high data costs. In view of this considerations you can choose to detect mobile devices by enabling this, in which case mobile devices will be served low resolution videos which you mention in the gallery json through the <code>mobileMp4</code> tag.</p>
+
+
+        <h4>onSetup</h4>
+        <p>This function is executed when the plugin loads the JSON data and the thumbnail images, finishes its internal processing and is just about to display the gallery on the page. You can use this function that is defined during the plugin initialization or you can also use the corresponding custom event that the plugin provides in its API.</p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').on('onSetup', function() {
+    console.log( 'The gallery has finished setup' );
+});
+</pre>
+
+        <h4>onAlbumLoad</h4>
+        <p>This function is executed when the plugin loads the thumbnail images inside an album, finishes its internal processing and is just about to display the contents of that album on the page. You can use this function that is defined during the plugin initialization, and as you can see the function provides an argument which is the index number (zero based) of the album that is being shown. You can also use the corresponding custom event that the plugin provides in its API.</p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').on('onAlbumLoad', function(event, index) {
+    console.log( 'The gallery has finished loading album ' + index );
+});
+</pre>
+
+        <h4>onOverlayOpen</h4>
+        <p>This function is executed when the overlay box (or lightbox) opens. You can use this function that is defined during the plugin initialization, and as you can see the function provides an argument which is the index number (zero based) of the item that is shown inside the overlay. You can also use the corresponding custom event that the plugin provides in its API.</p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').on('onOverlayOpen', function(event, index) {
+    console.log( 'The overlay has opened with item ' + index );
+});
+</pre>
+
+        <h4>onOverlayClose</h4>
+        <p>This function is executed when the overlay box (or lightbox) closes. You can use this function that is defined during the plugin initialization, and as you can see the function provides an argument which is the index number (zero based) of the item that was shown inside the overlay before it closes. You can also use the corresponding custom event that the plugin provides in its API.</p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').on('onOverlayClose', function(event, index) {
+    console.log( 'The overlay has closed with item ' + index );
+});
+</pre>
+
+        <hr>
+
+
+        <h3 id="api">API Functions</h3>
+        <p>Flow Gallery gives you access to several api functions that you can use to programmatically manipulate the gallery. These api functions are stored in a javascript object using the jquery <code>data()</code> method and attached to the container in which you embed the gallery. The available functions are:
+        </p>
+
+        <ul>
+            <li><strong>openAlbum(index)</strong> - open an album whose index number (zero based) is provided as an argument.</li>
+            <li><strong>openItem(index)</strong> - open an item in the lightbox whose index number is provided as an argument.</li>
+            <li><strong>showNext()</strong> - if an item is currently visible in the lightbox then move to the next item.</li>
+            <li><strong>showPrev()</strong> - if an item is currently visible in the lightbox then move to the previous item.</li>
+            <li><strong>closeItem()</strong> - if the lightbox is open the close it.</li>
+            <li><strong>getItemLink(index)</strong> - get the unique link to an item whose index number (zero based) is provided as an argument. The same link is created when deeplinking is enabled.</li>
+            <li><strong>getItemInfo(index)</strong> - get the details of an item, that is passed in the config json or generated by the plugin (for eg. Youtube video data). The index number of the item has to be passed as an argument.</li>
+            <li><strong>getCurrentFilter()</strong> - get the name of the current selected filter option in the gallery menu.</li>
+            <li><strong>getCurrentSort()</strong> - get the name of the current selected sort option in the gallery menu.</li>
+            <li><strong>getNumItems()</strong> - get the number of items in the gallery. When there are albums then this function returns the number of items in the current open album.</li>
+            <li><strong>getNumVisibleItems()</strong> - when chunk loading is enabled then this returns the number of items that have been loaded so far. If chunk loading is disabled then the return value of this function is the same as <code>getNumItems</code>. When there are albums then this function returns the number of loaded items for the current open album.</li>
+            <li><strong>getNumAlbums()</strong> - get the number of albums in the gallery.</li>
+        </ul>
+
+        <p>You can get a handle on the api functions, like this:</p>
+
+<pre class="prettyprint lang-javascript">
+var api = $('#my-gallery').data('flowGallery');
+api.openItem(2);
+api.getItemLink();
+</pre>
+
+        <p>Note that even though you can get the handle to the player api functions right after you initialize the plugin, the gallery is not ready until the plugin has loaded the json file and finished all the various internal processing, which can take a few seconds for a large gallery. Hence it is best to utilize the api functions after the <code>onSetup</code> event has been fired by the plugin. Therefore an example of recommended usage would look like:</p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').on('onSetup', function() {
+    var api = $(this).data('flowGallery');
+    api.openItem(2);
+    api.getItemLink();
+});
+</pre>
+
+        <hr>
+
+
+        <h3 id="keyboard">Keyboard Shortcuts</h3>
+
+        <p>Flow Gallery also provides some handy keyboard shortcuts to facilitate easier browsing. When the modal overlay box or lightbox is open then you can press LEFT and RIGHT keys to browse through the items. Pressing the ESC key will close the modal overlay.</p>
+
+        <hr>
+
+
+        <h3 id="examples">Examples</h3>
+
+        <p>To make the gallery items have the "card" style and also arrange them in columns, with specific number of columns at various screen sizes, you will initialize the plugin like this
+        </p>
+
+<pre class="prettyprint lang-javascript">
+$('#gallery').flowGallery({
+    gridType: 'columns',
+    columns: {320: 1, 480: 2, 720: 3, 960: 4, 1200: 5},
+    items: {style: 'card'}
+});
+</pre>
+
+        <p>To arrange the gallery items in rows, justify the last row, set a gutter size and make the items have the "tile" style then initialize the plugin like this</p>
+
+<pre class="prettyprint lang-javascript">
+$('#gallery').flowGallery({
+    gridType: 'rows',
+    justifyLastRow: true,
+    horizontalGutter: 10,
+    verticalGutter: 10,
+    items: {style: 'tile'}
+});
+</pre>
+
+        <p>Below we illustrate a case where you make the gallery load items in chunks that are loaded as the page is scrolled.
+        </p>
+
+<pre class="prettyprint lang-javascript">
+$('#gallery').flowGallery({
+    loadItemChunks: true,
+    loadChunksOnScroll: true,
+    initialChunkSize: null,
+    chunkSize: 10
+});
+</pre>
+
+
+        <p>If you want to enable deeplinking of items, which are in turn arranged in columns then initialize the plugin like this
+        </p>
+
+<pre class="prettyprint lang-javascript">
+$('#gallery').flowGallery({
+    gridType: 'columns',
+    columns: {320: 1, 480: 2, 720: 3, 960: 4, 1200: 5},
+    enableDeepLinking: true
+});
+</pre>
+
+
+
+        <hr>
+
+
+        <h2 id="cssFiles">B) CSS Files - <a href="#toc">top</a></h2>
+
+        <p>This item has one main css file, namely - <strong>flowgallery.css</strong>, which contain all the styling required for the plugin and they are well commented. You can change the styling of any element to better suit your project. For most elements you are free to set the width, height, background. The complete list of css files that you have to include in your page for the player to work is given below:</p>
+
+        <ul>
+            <li><strong>normalize.css</strong> (a reset.css will also do)</li>
+            <li><strong>mediaelementplayer.min.css</strong></li>
+            <li><strong>materialize-custom.css</strong></li>
+            <li><strong>flowgallery.css</strong></li>
+        </ul>
+
+        <p>All of the above css files are present in the "css" folder, except the second one which is present in the "medialement" folder. Note that the "css" folder is placed inside the "plugin files" folder. When you embed the gallery in your page then you should include the <strong>materialize-custom.css</strong> file, which is a reduced version of the css provided by the <a href="http://materializecss.com/">Materialize CSS</a> framework. In the provided demos the full framework css files has been used which you do NOT need to load, unless of course you are using the same framework in your site.</p>
+
+        <p>This gallery also uses the Roboto font family, which you can either load from Google Fonts or through the font files provided by the Materialize CSS framework. Note that the framework does not provide the Roboto Condensed font which you need to load from Google Fonts.</p>
+
+        <p>Also to make CSS3 gradients, border-radius and box-shadow work in IE, <a href="http://css3pie.com">CSS3 PIE</a> has been used, which is in the form of a htc file. IE requires that HTC behaviors are served up with a content-type header of "text/x-component", otherwise it will simply ignore the behaviour, IE9 being especially strict in this regard. Many web servers are preconfigured to serve the correct content-type, but others are not. If you have problems with the PIE behaviour not being applied, check your server configuration and if possible update it to use the correct content-type. For Apache, you can do this in a .htaccess file:
+        </p>
+
+<pre class="prettyprint">
+AddType text/x-component .htc
+</pre>
+
+        <p>By default htc files must have their paths set relative to the html file, but if you use <a href="http://code.google.com/p/ie7-js/">Dean Edwards' IE9.js</a> file in your page then for IE8 and below the htc file path has to be relative to the css file, just like background images.
+        </p>
+
+
+        <hr>
+
+
+
+        <h2 id="javascript">C) JavaScript Files - <a href="#toc">top</a></h2>
+
+        <p>The complete list of javascript files that are to be referenced in the page in order to make Flow work is given below:</p>
+
+        <ul>
+            <li><strong><a href="http://jquery.com/">jQuery</a></strong> &ndash; a javascript library. Flow requires jQuery 1.7.0+ to function.</li>
+            <li><strong><a href="http://mediaelementjs.com/">Mediaelement.js</a></strong> &ndash; HTML5 video and audio player with Flash and Silverlight fallback for older browsers.</li>
+            <li><strong><a href="http://salvattore.com/">Salvattore</a></strong> &ndash; a plugin to arrange item in columns.</li>
+            <li><strong><a href="http://imagesloaded.desandro.com/">Imagesloaded</a></strong> &ndash; This plugin allows to detect the loading of images.</li>
+            <li><strong><a href="http://julian.com/research/velocity/">Velocity.js</a></strong> &ndash; A javascript library for animations.</li>
+            <li><strong><a href="http://ngryman.sh/jquery.finger/">jQuery Finger</a></strong> &ndash; jQuery plugin to detect touchscreen events</li>
+            <li><strong>jquery.flowgallery.js</strong> &ndash; This item's main javascript file where all the functionality of Flow Gallery has been defined.</li>
+        </ul>
+
+        <p>All the requires javascript files are placed inside the "js" folder, which in turn is inside the "plugin files" folder. Please note that the demo html files provided with this package reference the minified version of jquery.flowgallery.js, i.e. jquery.flowgallery.min.js. If you want to make changes to this javascript file then you can do so in the un-minified version provided and then minify that to replace the original minified version when you deploy your project.
+        </p>
+
+        <p>Also to enable IE8 and below to understand new HTML5 tags <a href="http://code.google.com/p/html5shiv/">HTML5 Shiv</a> has been used.
+        </p>
+
+
+        <p>You should follow best practices and include the javascript files at the very end of your document, just before the closing <code>body</code> tag. This allows faster loading of web pages and that is how the javascript files are included in the player demos.
+        </p>
+
+
+        <hr>
+
+
+        <h2 id="php">D) PHP Files - <a href="#toc">top</a></h2>
+
+        <p>There are 2 folders of php files provided with the package (all located in the "plugin files" folder). The folder called "cache" contains two php files (get-cache.php and update-cache.php) that manage the creation and retrieving of the gallery cache file. In order to make these php files work ensure that they have proper permissions to read and write. Also whatever folder these files are present in, that folder will also be used to store the cached data, so ensure that folder has proper permission for writing. The folder called "php" contains php files for extracting EXIF data, scanning folders for photos, and detecting mobile devices. Please do NOT change the names of the individual php files but you are free to change the paths and names of the parent folders, namely "cache" and "php" to anything you want, in which case you have to supply the new path in the plugin options (which has already been explained in the section on Javascript Setup).
+        </p>
+
+        <hr>
+
+
+        <p>I hope that you like this item and it makes your web page more stunning. If you find any bugs then don't hesitate to let me know. Also if you want to see some new features in this item or have any ideas to make the overall item much better then you can send me the details. All future updates are of course free !
+        </p>
+
+        <p>Once again, thank you so much for purchasing this item. As I said at the beginning, I'd be glad to help you if you have any questions relating to this item. No guarantees, but I'll do my best to assist. If you have a more general question relating to the items on Codecanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.
+        </p>
+
+        <p class="append-bottom alt large"><strong>Nilok Bose</strong></p>
+        <p><a href="#toc">Go To Table of Contents</a></p>
+
+        <hr class="space">
+    </div><!-- end div .container -->
+
+
+    <script type="text/javascript" src="assets/prettify/prettify.js"></script>
+    <script type="text/javascript">
+        prettyPrint();
+    </script>
+
+</body>
+</html>

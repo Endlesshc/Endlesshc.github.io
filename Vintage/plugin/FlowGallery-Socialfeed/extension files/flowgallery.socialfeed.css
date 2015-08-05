@@ -1,0 +1,94 @@
+.flow-gallery .card-title .meta {
+  display: block;
+}
+.flow-gallery .card-title .views,
+.flow-gallery .card-title .likes {
+  font: 14px/1 'Roboto', 'Helvetica Neue', sans-serif;
+  color: #646464;
+}
+.flow-gallery .card-title .views i,
+.flow-gallery .card-title .likes i {
+  position: static;
+  font-size: inherit;
+}
+.flow-gallery .card-title .views {
+  margin-right: 10px;
+}
+.flow-gallery.pinterest .card-title {
+  margin-bottom: 0;
+}
+.flow-gallery.pinterest .card-title + p {
+  display: none;
+}
+.flow-gallery .card-image .uploaded,
+.flow-gallery .card-image .views,
+.flow-gallery .card-image .likes,
+.flow-gallery .card-image .uploaded {
+  color: #ededed;
+}
+.flow-gallery .card-image .user {
+  display: block;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  z-index: 10;
+  line-height: 1;
+  opacity: 1;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+.flow-gallery .card-image .user img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+.flow-gallery .card-action .user {
+  float: right;
+  margin: 0;
+}
+.flow-gallery .card-action .user img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.flow-gallery .tile .card-title .meta {
+  margin-top: 5px;
+}
+.flow-gallery .tile .card-image .uploaded {
+  display: none;
+}
+.flow-gallery .tile .card-reveal .views,
+.flow-gallery .tile .card-reveal .likes {
+  display: none;
+}
+.flow-gallery .uploaded {
+  font: 500 14px/1 'Roboto', 'Helvetica Neue', sans-serif;
+  color: #999;
+  margin-top: 10px;
+  display: block;
+}
+.flow-gallery .tile .uploaded {
+  color: #ededed;
+}
+.flow-gallery.facebook .card-reveal .uploaded,
+.flow-gallery.facebook .card-content .uploaded {
+  color: #646464;
+}
+.flow-gallery.facebook .tile .card-reveal .uploaded {
+  color: #ededed;
+}
+.flow-gallery.instagram .card-image .uploaded {
+  margin-bottom: 5px;
+}
+.flow-gallery.instagram .card-reveal .uploaded,
+.flow-gallery.instagram .card-content .uploaded {
+  color: #646464;
+}
+.flow-gallery.instagram .tile .card-image .uploaded {
+  display: block;
+}
+.flow-gallery.instagram .tile .card-reveal .uploaded {
+  color: #ededed;
+}
+.flow-gallery .flow-overlay .overlay-content .meta {
+  display: none;
+}

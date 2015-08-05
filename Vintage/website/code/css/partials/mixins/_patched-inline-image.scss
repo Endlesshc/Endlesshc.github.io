@@ -1,0 +1,21 @@
+@mixin patched-inline-image( $location, $repeat: repeat, $position: 0px 0px, $context: $browserContext, $inlineImage: true ) {
+    @include background-size( pem( remove-unit( image-width( $location ) ), $context ) auto );
+
+    @if ( $inlineImage ) {
+        background-image: inline-image( $location );
+    } @else {
+        background-image: url( '../img' + $location );
+    }
+
+    background-repeat: $repeat; background-position: $position;
+
+    .lt-ie9 & { background-image: url( '../img' + $location ); }
+
+    // If we have a retina image then add styles for it too
+    @if file_exists( retina_filename( $location ) ) {
+        @media only screen and ( -webkit-min-device-pixel-ratio: 1.5 ), only screen and ( min-resolution: 144dpi ) {
+            @include background-size( pem( remove-unit( image-width( $location ) ), $context ) auto );
+            background-image: url( retina_filename( '../img' + $location ) );
+        }
+    }
+}
