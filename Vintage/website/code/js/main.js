@@ -7,7 +7,23 @@ $(document).scroll(function () {
        	$('#navigation').fadeOut();
    	}
 });
+$(document).scroll(function () {
+   	var logonav = $(this).scrollTop();
+   	if (logonav > 150) {
+       	$('#nav-logo i').css({'font-size':'120px','left':'40px'});
+   	} else {
+       	$('#nav-logo i').css({'font-size':'0px','left':'0'});
+   	}
+});
 
+$(document).scroll(function () {
+   	var logo = $(this).scrollTop();
+   	if (logo > 110) {
+       	$('header h1 i').fadeOut(400);
+   	} else {
+       	$('header h1 i').fadeIn(400);
+   	}
+});
 
   $(window).scroll(function() {
 
