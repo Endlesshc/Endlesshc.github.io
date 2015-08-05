@@ -1,0 +1,95 @@
+//Call example ->   @include animation('animation-name' 2s ease 1s 3 normal);
+//Call it from within the desired target
+@mixin animation( $animation-1: default, $animation-2: false, $animation-3: false, $animation-4: false, $animation-5: false, $animation-6: false, $animation-7: false, $animation-8: false, $animation-9: false, $animation-10: false ) {
+    $default-animation-name: 'animation1';
+    $default-animation-duration: 0;
+    $default-animation-function: ease;
+    $default-animation-delay: 0;
+    $default-animation-iteration: 1;
+    $default-animation-direction: normal;
+
+    @if $animation-1 == default {
+        $animation-1: compact( $default-animation-name $default-animation-duration $default-animation-function $default-animation-delay, $default-animation-iteration, $default-animation-direction );
+    }
+
+    $animations: false;
+
+    @if type-of( $animation-1 ) == list and type-of( nth( $animation-1, 1 ) ) == list {
+        $animations: join( $animation-1, compact( $animation-2, $animation-3, $animation-4, $animation-5, $animation-6, $animation-7, $animation-8, $animation-9, $animation-10 ), comma );
+    } @else {
+        $animations: compact( $animation-1, $animation-2, $animation-3, $animation-4, $animation-5, $animation-6, $animation-7, $animation-8, $animation-9, $animation-10 );
+    }
+
+    $delays: comma-list();
+    $has-delays: false;
+    $webkit-value: comma-list();
+    $moz-value: comma-list();
+    $o-value: comma-list();
+
+    @each $animation in $animations {
+        // Extract the values from the list
+        $name: nth( $animation, 1 );
+        $duration: false;
+        $timing-function: false;
+        $delay: false;
+        $iteration-count: false;
+        $direction: false;
+        @if length( $animation ) > 1 {
+            $duration: nth( $animation, 2 );
+        }
+        @if length( $animation ) > 2 {
+            $timing-function: nth( $animation, 3 );
+        }
+        @if length( $animation ) > 3 {
+            $delay: nth( $animation, 4 );
+            $has-delays: true;
+        }
+        @if length( $animation ) > 4 {
+            $iteration-count: nth( $animation, 5 );
+        }
+        @if length( $animation ) > 5 {
+            $direction: nth( $animation, 6 );
+        }
+        // If a delay is provided without a timing function
+        @if is-time( $timing-function ) and not $delay {
+            $delay: $timing-function;
+            $timing-function: false;
+            $has-delays: true;
+        }
+        // Keep a list of delays in case one is specified
+        $delays: append( $delays, if( $delay, $delay, 0s ) );
+        $webkit-value: append( $webkit-value, compact( $name $duration $timing-function $delay $iteration-count $direction ) );
+        $moz-value: append( $moz-value, compact( $name $duration $timing-function $delay $iteration-count $direction ) );
+        $o-value: append( $o-value, compact( $name $duration $timing-function $delay $iteration-count $direction ) );
+    }
+    @if $experimental-support-for-webkit {
+        -webkit-animation: $webkit-value;
+    }
+    @if $experimental-support-for-mozilla {
+        -moz-animation: $moz-value;
+    }
+    @if $experimental-support-for-opera {
+        -o-animation: $o-value;
+    }
+    animation: $animations;
+}
+
+/*Call example \/
+@include keyframes( 'animation-name' ){
+    from { background: red; }
+    to { background: green; }
+}
+
+Call this from OUTSIDE ANY ELEMENT!*/
+@mixin keyframes( $name ) {
+    @if $experimental-support-for-webkit {
+        @-webkit-keyframes #{ $name } { @content; }
+    }
+    @if $experimental-support-for-mozilla {
+        @-moz-keyframes #{ $name } { @content; }
+    }
+    @if $experimental-support-for-opera {
+        @-o-keyframes #{ $name } { @content; }
+    }
+    @keyframes #{ $name } { @content; }
+}
