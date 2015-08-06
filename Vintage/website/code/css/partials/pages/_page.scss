@@ -909,6 +909,10 @@ body{
 
 }
 @media only screen and (min-device-width : 400px) and (max-device-width : 600px){
+      .featured-box{
+            display:block;
+            width:100%;
+      }
 
 }
 @media only screen and (min-device-width : 450px) and (max-device-width : 500px){
@@ -957,8 +961,38 @@ iPad 3
 /* ========================================================================== */
 /* ================================== WIDE ================================== */
 /* ========================================================================== */
-@media only screen  and (min-width : 1024px) {
+@media only screen and (min-width : 400px) and (max-width : 600px){
+      .featured-box{
+            display:block;
+            width:100% !important;
+      }
 
+}
+
+@media only screen  and (min-width : 1024px) and (max-width : 1100px) {
+      nav{
+            a{
+                  margin:15px 10px;
+            }
+      }
+
+
+}
+
+@media only screen  and (max-width : 1024px) {
+      nav{
+            a{
+                  display:none;
+            }
+      }
+      #description p{
+            max-width:80% !important;
+            line-height: 25px !important;
+            font-size:90% !important;
+      }
+      .main-features-content-box{
+            display:none;
+      }
 
 }
 
