@@ -1011,8 +1011,12 @@ iPad 3
 }
 /* Large screens ----------- */
 @media only screen  and (min-width : 1440px) and (max-width : 2560px) {
-
+      .featured-box{
+            display:block;
+            width:100% !important;
+      }
 }
+
 
 /* ========================================================================== */
 /* ================================= PRINT ================================== */
