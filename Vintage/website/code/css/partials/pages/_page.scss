@@ -889,6 +889,10 @@ body{
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) {
+      .featured-box{
+            display:block;
+            width:100% !important;
+      }
 
 }
 
@@ -903,7 +907,10 @@ body{
 
 
 @media only screen and (max-width : 767px) {
-
+      .featured-box{
+            display:block;
+            width:100% !important;
+      }
 }
 @media only screen and (max-width : 730px) {
 
