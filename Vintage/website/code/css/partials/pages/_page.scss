@@ -18,6 +18,7 @@ footer{
       color:white;
       font-family:$lato;
       font-weight:100;
+      position:relative;
       #company-informations{
             float:left;
             ul{
@@ -889,20 +890,35 @@ body{
 
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) {
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
       .featured-box{
             display:block;
             width:100% !important;
             height:33.33vh !important;
       }
 }
-
-/* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
-
+@media only screen and (min-width : 200px) and (max-width : 600px) {
+      footer{
+            height:350px;
+      }
+      #company-informations {
+            ul {
+                bottom: 85px !important;
+                left:-35px;
+                right:initial !important;
+          }
+    }
 }
 /* IPHONE 6+ -------------- */
-@media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 3) {
-
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+      .featured-box{
+            width:100% !important;
+            height:33.33333vh !important;
+      }
 }
 
 
@@ -912,8 +928,36 @@ body{
             width:100% !important;
             height:33.33vh !important;
       }
+      #form{
+            display:none !important;
+      }
+      #description {
+            padding:40px 10px 10px 10px !important;
+            p{
+                  font-size:16px !important;
+                  font-weight:400 !important;
+                  max-width:100% !important;
+                  line-height: 24px !important;
+            }
+      }
+      #business-hours{
+            position:absolute;
+            bottom:-105px;
+            left:70px;
+      }
+      #company-informations{
+            ul{
+                  position: absolute;
+                  right: 10px;
+                  bottom:-105px;
+            }
+      }
 }
 @media only screen and (max-width : 730px) {
+      .featured-box{
+            width:33.333333333%;
+            height:100%;
+      }
 
 }
 @media only screen and (min-device-width : 400px) and (max-device-width : 600px){
@@ -972,8 +1016,9 @@ iPad 3
 @media only screen and (min-width : 400px) and (max-width : 600px){
       .featured-box{
             display:block;
-            width:100% !important;
+            width:100%;
       }
+
 
 }
 
@@ -982,6 +1027,10 @@ iPad 3
             a{
                   margin:15px 10px;
             }
+      }
+      .featured-box{
+            width:33.333333333%;
+            height:100%;
       }
 
 
@@ -994,19 +1043,34 @@ iPad 3
             }
       }
       #description p{
-            max-width:80% !important;
-            line-height: 25px !important;
-            font-size:90% !important;
+            max-width:80%;
+            line-height: 25px;
+            font-size:90%;
       }
       .main-features-content-box{
             display:none;
       }
+      .featured-box{
+            width:33.333333333%;
+            height:100%;
+      }
 
+}
+
+@media only screen and (min-width : 320px ) and (max-width : 900px) {
+      .featured-box{
+            display:block;
+            width:100%;
+            height:33.3333vh;
+      }
 }
 
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) and (max-width : 1281px){
-
+      .featured-box{
+            width:33.333333333%;
+            height:100%;
+      }
 }
 
 /* ========================================================================== */
@@ -1021,7 +1085,7 @@ iPad 3
 @media only screen  and (min-width : 1440px) and (max-width : 2560px) {
       .featured-box{
             display:block;
-            width:100% !important;
+            width:33.33333%;
       }
 }
 
