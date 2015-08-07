@@ -1091,7 +1091,7 @@ iPad 3
 
 }
 
-@media only screen and (min-width : 320px ) and (max-width : 900px) {
+@media all and (min-width : 320px ) and (max-width : 900px) {
       .featured-box{
             display:block;
             width:100%;
