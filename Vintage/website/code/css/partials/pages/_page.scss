@@ -974,6 +974,40 @@ body{
 
 
 }
+
+
+
+
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+        #form{
+              display:none !important;
+        }
+        #description {
+              padding:40px 10px 10px 10px !important;
+              p{
+                    font-size:16px !important;
+                    font-weight:400 !important;
+                    max-width:100% !important;
+                    line-height: 24px !important;
+              }
+        }
+        #business-hours{
+              position:absolute;
+              bottom:-105px;
+              left:70px;
+        }
+        #company-informations{
+              ul{
+                    position: absolute;
+                    right: 10px;
+                    bottom:-105px;
+              }
+        }
+}
 /* ========================================================================== */
 /* ============================== INTERMEDIATE ============================== */
 /* ========================================================================== */
