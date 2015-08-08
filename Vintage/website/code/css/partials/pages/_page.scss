@@ -18,6 +18,7 @@ footer{
       color:white;
       font-family:$lato;
       font-weight:100;
+      position:relative;
       #company-informations{
             float:left;
             ul{
@@ -113,6 +114,15 @@ body{
     // background:url(../img/common/header.jpg);
     height:100vh;
     background-size:cover;
+    #nav-logo{
+          position:absolute;
+          left:40px;
+          top:-20px;
+          i{
+                transition:all 0.5s;
+                font-size:120px;
+          }
+   }
     h1{
       text-align:center;
       position:absolute;
@@ -122,7 +132,6 @@ body{
       font-size:400px;
       margin-top: -150px;
       margin-left:-200px;
-
     }
   }
   #description{
@@ -886,21 +895,76 @@ body{
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
-
+      .featured-box{
+            display:block;
+            width:100% !important;
+            height:33.33vh !important;
+      }
+}
+@media only screen and (min-width : 200px) and (max-width : 600px) {
+      footer{
+            height:350px;
+      }
+      #company-informations {
+            ul {
+                bottom: 85px !important;
+                left:-35px;
+                right:initial !important;
+          }
+    }
 }
 /* IPHONE 6+ -------------- */
-@media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 3) {
-
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+      .featured-box{
+            width:100% !important;
+            height:33.33333vh !important;
+      }
 }
 
 
 @media only screen and (max-width : 767px) {
-
+      .featured-box{
+            display:block;
+            width:100% !important;
+            height:33.33vh !important;
+      }
+      #form{
+            display:none !important;
+      }
+      #description {
+            padding:40px 10px 10px 10px !important;
+            p{
+                  font-size:16px !important;
+                  font-weight:400 !important;
+                  max-width:100% !important;
+                  line-height: 24px !important;
+            }
+      }
+      #business-hours{
+            position:absolute;
+            bottom:-105px;
+            left:70px;
+      }
+      #company-informations{
+            ul{
+                  position: absolute;
+                  right: 10px;
+                  bottom:-105px;
+            }
+      }
 }
 @media only screen and (max-width : 730px) {
+      .featured-box{
+            width:33.333333333%;
+            height:100%;
+      }
 
 }
 @media only screen and (min-device-width : 400px) and (max-device-width : 600px){
+      .featured-box{
+            display:block;
+            width:100%;
+      }
 
 }
 @media only screen and (min-device-width : 450px) and (max-device-width : 500px){
@@ -909,6 +973,40 @@ body{
 @media only screen and (min-width : 768px) and (max-width : 1024px) {
 
 
+}
+
+
+
+
+@media screen
+  and (device-width: 360px)
+  and (device-height: 640px)
+  and (-webkit-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+        #form{
+              display:none !important;
+        }
+        #description {
+              padding:40px 10px 10px 10px !important;
+              p{
+                    font-size:16px !important;
+                    font-weight:400 !important;
+                    max-width:100% !important;
+                    line-height: 24px !important;
+              }
+        }
+        #business-hours{
+              position:absolute;
+              bottom:-105px;
+              left:70px;
+        }
+        #company-informations{
+              ul{
+                    position: absolute;
+                    right: 10px;
+                    bottom:-105px;
+              }
+        }
 }
 /* ========================================================================== */
 /* ============================== INTERMEDIATE ============================== */
@@ -949,14 +1047,64 @@ iPad 3
 /* ========================================================================== */
 /* ================================== WIDE ================================== */
 /* ========================================================================== */
-@media only screen  and (min-width : 1024px) {
+@media only screen and (min-width : 400px) and (max-width : 600px){
+      .featured-box{
+            display:block;
+            width:100%;
+      }
 
 
 }
 
+@media only screen  and (min-width : 1024px) and (max-width : 1100px) {
+      nav{
+            a{
+                  margin:15px 10px;
+            }
+      }
+      .featured-box{
+            width:33.333333333%;
+            height:100%;
+      }
+
+
+}
+
+@media only screen  and (max-width : 1024px) {
+      nav{
+            a{
+                  display:none;
+            }
+      }
+      #description p{
+            max-width:80%;
+            line-height: 25px;
+            font-size:90%;
+      }
+      .main-features-content-box{
+            display:none;
+      }
+      .featured-box{
+            width:33.333333333%;
+            height:100%;
+      }
+
+}
+
+@media all and (min-width : 320px ) and (max-width : 900px) {
+      .featured-box{
+            display:block;
+            width:100%;
+            height:33.3333vh;
+      }
+}
+
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) and (max-width : 1281px){
-
+      .featured-box{
+            width:33.333333333%;
+            height:100%;
+      }
 }
 
 /* ========================================================================== */
@@ -969,8 +1117,12 @@ iPad 3
 }
 /* Large screens ----------- */
 @media only screen  and (min-width : 1440px) and (max-width : 2560px) {
-
+      .featured-box{
+            display:block;
+            width:33.33333%;
+      }
 }
+
 
 /* ========================================================================== */
 /* ================================= PRINT ================================== */
