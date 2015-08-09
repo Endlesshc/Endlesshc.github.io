@@ -9,7 +9,7 @@
 
      <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-     <meta name="description" content="François Bertrand Boucher Cuisinier" />
+     <meta name="description" content="Vintage tatouages" />
 
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -185,7 +185,7 @@ $headers = 'From: '.$email_from."\r\n".
 
 ?>
   <span>Merci, votre courriel a bien été envoyé!</span>
-  <a href="http://www.boucherfbertrand.com">Retour à la page d'accueil</a>
+  <a href="#">Retour à la page d'accueil</a>
 </div>
 
 <?php

@@ -37,6 +37,7 @@ $(document).scroll(function () {
      $('.back-to-top-arrow').fadeOut();
     }
 });
+
 $(document).ready(function() {
       var text = $('.service-select option:selected').text()
       $(".selected-service").text(text);
@@ -61,6 +62,82 @@ $(document).click(function(){
       var formatted = text.substr(2, 10);
       $(".selected-service").text(formatted);
 });
+
+// $(document).on('click', function(){
+//   if ($('.nl-dd-checked').text == 'de tatouages'){
+//     $('form#contact-form').attr('action', '/send_form_tommi.php');
+//   }
+// });
+
+
+$(document).on('click',function(){
+      if($('.nl-field-toggle:contains("  general")').length) {
+            $('form#contact-form').attr('action', '/send_form_email.php');
+            $('.tattoo-select-wrapper').hide();
+            $('.haircuts-select-wrapper').hide();
+            $('.tattoo-select-wrapper .nl-field-toggle').text('le tatoueur');
+            $('.haircuts-select-wrapper .nl-field-toggle').text('la coiffeuse/esthéticienne');
+      }
+
+});
+
+
+$(document).on('click',function(){
+      if($('.nl-field-toggle:contains("de coiffure")').length) {
+            // $('form#contact-form').attr('action', '/send_form_myriam.php');
+            $('.haircuts-select-wrapper').fadeIn(300);
+            $('.tattoo-select-wrapper').hide();
+            $('.tattoo-select-wrapper .nl-field-toggle').text('le tatoueur');
+      }
+
+});
+
+$(document).on('click',function(){
+      if($('.nl-field-toggle:contains("Myriam")').length) {
+            $('form#contact-form').attr('action', '/send_form_myriam.php');
+      }
+});
+
+$(document).on('click',function(){
+      if($('.nl-field-toggle:contains("Valerie")').length) {
+            $('form#contact-form').attr('action', '/send_form_esthetique.php');
+      }
+});
+
+
+// /////////////////////////////////////////////////////////////////////
+//
+//                               TATTOO FORM
+//
+// /////////////////////////////////////////////////////////////////////
+$(document).on('click',function(){
+      if($('.nl-field-toggle:contains("de tatouages")').length) {
+            $('.tattoo-select-wrapper').fadeIn(300);
+            $('.haircuts-select-wrapper').hide();
+      }
+});
+
+$(document).on('click',function(){
+      if($('.nl-field-toggle:contains("Tommi")').length) {
+            $('form#contact-form').attr('action', '/send_form_tommi.php');
+      }
+});
+
+$(document).on('click',function(){
+      if($('.nl-field-toggle:contains("Elvis")').length) {
+            $('form#contact-form').attr('action', '/send_form_elvis.php');
+      }
+});
+
+// /////////////////////////////////////////////////////////////////////
+//
+//                               TATTOO FORM END
+//
+// /////////////////////////////////////////////////////////////////////
+
+
+
+
 // $(function(){
 //       $('#demo5').scrollbox({
 //         infiniteLoop: false,
@@ -119,7 +196,11 @@ $(function(){
 });
 });
 
-
+// $(document).ready(function(i) {
+//       $(".nl-field").each(function() {
+//             $(this).addClass("nl-field" + (i+1));
+//       });
+// });
 
 
 

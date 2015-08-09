@@ -180,10 +180,10 @@ body{
             -moz-background-size: 100%;
             -o-background-size: 100%;
             background-size: 100%;
-            -webkit-transition: all 1s ease-in-out;
-            -moz-transition: all 1s ease-in-out;
-            -o-transition: all 1s ease-in-out;
-            transition: all 1s ease-in-out;
+            -webkit-transition: all 0.6s ease-in-out;
+            -moz-transition: all 0.6s ease-in-out;
+            -o-transition: all 0.6s ease-in-out;
+            transition: all 0.6s ease-in-out;
             &.tattoo-bg{
                   background:url(../img/common/feature1.jpg);
             }
@@ -911,7 +911,14 @@ body{
                 left:-35px;
                 right:initial !important;
           }
-    }
+      }
+      header{
+            h1{
+                  i{
+                        font-size:80%;
+                  }
+            }
+      }
 }
 /* IPHONE 6+ -------------- */
 @media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
