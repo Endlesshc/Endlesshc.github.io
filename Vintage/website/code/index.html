@@ -130,13 +130,27 @@
              <form id="nl-form" class="nl-form">
                  J'aimerais rejoindre le service
                  <select class="service-select">
-                       <option value="1" class="general-opt" selected>  général</option>
+                       <option value="1" class="general-opt" selected>  general</option>
                        <option value="2" class="tattoo-opt">de tatouages</option>
-                       <option value="3" class="haircut-opt">de coiffure</option>
-                       <option value="4" class="nail-opt">d'esthétique</option>
+                       <option value="3" class="haircut-opt">de coiffure / d'esthétique</option>
                  </select>
                  <div class="nl-overlay"></div>
-          </form>
+                      <br />
+                      <div class="tattoo-select-wrapper" style="display:none;">
+                            Plus spécialement
+                            <select class="service-select select-tattoo-artist">
+                                  <option value="2" class="tattoo-a-opt">Tommi</option>
+                                  <option value="3" class="tattoo-a2-opt">Elvis</option>
+                            </select>
+                      </div>
+                     <div class="haircuts-select-wrapper" style="display:none;">
+                           Plus spécialement
+                           <select class="service-select select-tattoo-artist">
+                                 <option value="2" class="haircuts-a-opt">Myriam</option>
+                                 <option value="3" class="haircuts-a2-opt">Valerie</option>
+                           </select>
+                     </div>
+            </form>
             <form name="contactform" method="post" id="contact-form" action="send_form_email.php">
                     <span class="input input--minoru">
                         <input class="input__field input__field--contact-form" type="text" id="input-1" name="first_name" />
