@@ -919,8 +919,37 @@ body{
                   }
             }
       }
+      #company-info{
+            width:100% !important;
+
+            img{
+                  width:80% !important;
+                  padding-top:100px !important;
+            }
+            ul{
+                  display:none;
+            }
+      }
+      #form{
+            width:100% !important;
+            display:block;
+            font-size:13px;
+      }
 }
-/* IPHONE 6+ -------------- */
+@media (min-width : 200px) and (max-width : 321px){
+      header{
+            h1{
+                  margin-left:-159px !important;
+                  i{
+                        font-size:80%;
+                  }
+            }
+      }
+      #company-informations ul{
+            margin-left:50px !important;
+      }
+}
+
 @media (min-device-width : 414px) and (max-device-width : 736px) {
       .featured-box{
             width:100% !important;
@@ -935,9 +964,9 @@ body{
             width:100% !important;
             height:33.33vh !important;
       }
-      #form{
-            display:none !important;
-      }
+      // #form{
+      //       display:none !important;
+      // }
       #description {
             padding:40px 10px 10px 10px !important;
             p{
@@ -989,9 +1018,9 @@ body{
   and (device-height: 640px)
   and (-webkit-device-pixel-ratio: 3)
   and (orientation: portrait) {
-        #form{
-              display:none !important;
-        }
+      //   #form{
+      //         display:none !important;
+      //   }
         #description {
               padding:40px 10px 10px 10px !important;
               p{
