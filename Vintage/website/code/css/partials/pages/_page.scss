@@ -889,19 +889,19 @@ body{
 /* ========================================================================== */
 
 /* Smartphones (landscape) ----------- */
-@media only screen and (min-width : 321px) {
+@media (min-width : 321px) {
 
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
+@media (max-width : 320px) {
       .featured-box{
             display:block;
             width:100% !important;
             height:33.33vh !important;
       }
 }
-@media only screen and (min-width : 200px) and (max-width : 600px) {
+@media (min-width : 200px) and (max-width : 600px) {
       footer{
             height:350px;
       }
@@ -921,7 +921,7 @@ body{
       }
 }
 /* IPHONE 6+ -------------- */
-@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+@media (min-device-width : 414px) and (max-device-width : 736px) {
       .featured-box{
             width:100% !important;
             height:33.33333vh !important;
@@ -929,7 +929,7 @@ body{
 }
 
 
-@media only screen and (max-width : 767px) {
+@media (max-width : 767px) {
       .featured-box{
             display:block;
             width:100% !important;
@@ -960,24 +960,24 @@ body{
             }
       }
 }
-@media only screen and (max-width : 730px) {
+@media (max-width : 730px) {
       .featured-box{
             width:33.333333333%;
             height:100%;
       }
 
 }
-@media only screen and (min-device-width : 400px) and (max-device-width : 600px){
+@media (min-device-width : 400px) and (max-device-width : 600px){
       .featured-box{
             display:block;
             width:100%;
       }
 
 }
-@media only screen and (min-device-width : 450px) and (max-device-width : 500px){
+@media (min-device-width : 450px) and (max-device-width : 500px){
 
 }
-@media only screen and (min-width : 768px) and (max-width : 1024px) {
+@media (min-width : 768px) and (max-width : 1024px) {
 
 
 }
@@ -985,8 +985,7 @@ body{
 
 
 
-@media screen
-  and (device-width: 360px)
+@media (device-width: 360px)
   and (device-height: 640px)
   and (-webkit-device-pixel-ratio: 3)
   and (orientation: portrait) {
@@ -1020,7 +1019,7 @@ body{
 /* ========================================================================== */
 
 /* iPads (landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+@media (min-device-width : 768px) and (max-device-width : 1024px) {
 
 }
 
@@ -1054,7 +1053,7 @@ iPad 3
 /* ========================================================================== */
 /* ================================== WIDE ================================== */
 /* ========================================================================== */
-@media only screen and (min-width : 400px) and (max-width : 600px){
+@media (min-width : 400px) and (max-width : 600px){
       .featured-box{
             display:block;
             width:100%;
@@ -1063,7 +1062,7 @@ iPad 3
 
 }
 
-@media only screen  and (min-width : 1024px) and (max-width : 1100px) {
+@media (min-width : 1024px) and (max-width : 1100px) {
       nav{
             a{
                   margin:15px 10px;
@@ -1077,7 +1076,7 @@ iPad 3
 
 }
 
-@media only screen  and (max-width : 1024px) {
+@media (max-width : 1024px) {
       nav{
             a{
                   display:none;
@@ -1098,7 +1097,7 @@ iPad 3
 
 }
 
-@media all and (min-width : 320px ) and (max-width : 900px) {
+@media (min-width : 320px ) and (max-width : 900px) {
       .featured-box{
             display:block;
             width:100%;
@@ -1107,7 +1106,7 @@ iPad 3
 }
 
 /* Desktops and laptops ----------- */
-@media only screen  and (min-width : 1224px) and (max-width : 1281px){
+@media (min-width : 1224px) and (max-width : 1281px){
       .featured-box{
             width:33.333333333%;
             height:100%;
@@ -1119,11 +1118,11 @@ iPad 3
 /* ========================================================================== */
 
 /* Large screens ----------- */
-@media only screen  and (min-width : 1824px) {
+@media (min-width : 1824px) {
 
 }
 /* Large screens ----------- */
-@media only screen  and (min-width : 1440px) and (max-width : 2560px) {
+@media (min-width : 1440px) and (max-width : 2560px) {
       .featured-box{
             display:block;
             width:33.33333%;
