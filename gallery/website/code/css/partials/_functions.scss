@@ -1,0 +1,22 @@
+@function pem( $pixels, $context: $browserContext ) {
+    @return #{ $pixels/$context }em;
+}
+
+@function remove-unit( $target ) {
+    $one: 1;
+
+    @if not unitless( $target ) {
+        @if ( unit( $target ) == 'px' ) {
+            $one: 1px;
+        } @elseif ( unit( $target ) == 'em' ) {
+            $one: 1em;
+        } @elseif ( unit( $target ) == '%' ) {
+            $one:1%;
+        }
+
+        @return $target / $one;
+
+    } @else {
+        @return $target;
+    }
+}

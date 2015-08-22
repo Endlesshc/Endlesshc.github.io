@@ -1,0 +1,325 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <title>Flow Gallery Social Feed Documentation</title>
+    <!-- Framework CSS -->
+    <link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+    <!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="assets/prettify/prettify.css" type="text/css" media="screen, projection" />
+    <style type="text/css" media="screen">
+        p, table, hr, .box { margin-bottom:25px; }
+        .box p { margin-bottom:10px; }
+        h4 { font-weight: bold;}
+        pre {
+            padding: 20px !important;
+            border: 1px solid #ccc !important;
+            background: #f6f6f7;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div class="container">
+
+        <h3 class="center alt">&ldquo;Flow Gallery Social Feed&rdquo; Documentation by &ldquo;Nilok Bose&rdquo; v1.0.1</h3>
+
+        <hr>
+
+        <h1 class="center">&ldquo;Flow Gallery Social Feed&rdquo;</h1>
+
+        <div class="borderTop">
+            <div class="span-6 colborder info prepend-1">
+                <p class="prepend-top">
+                    <strong>
+                    Created: 26 March, 2015<br>
+                    Updated: 5 May, 2015<br>
+                    By: Nilok Bose<br>
+                    Email: <a href="mailto:cosmocoder@gmail.com">cosmocoder@gmail.com</a>
+                    </strong>
+                </p>
+            </div><!-- end div .span-6 -->
+
+            <div class="span-12 last">
+                <p class="prepend-top append-0">Thank you for purchasing my item. If you have any questions that are beyond the scope of this help
+                file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/cosmocoder">here</a>. Thanks so much!
+                </p>
+            </div>
+        </div><!-- end div .borderTop -->
+
+        <hr>
+
+        <h2 id="toc" class="alt">Table of Contents</h2>
+        <ol class="alpha">
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#howto">How to Use</a>
+            	<ul>
+                    <li><a href="#jsSetup">Javascript Setup</a></li>
+            		<li><a href="#examples">Examples</a></li>
+            	</ul>
+            </li>
+            <li><a href="#css">CSS Files</a></li>
+            <li><a href="#javascript">JavaScript Files</a></li>
+        </ol>
+
+        <hr>
+
+        <h2 id="intro">A) Introduction - <a href="#toc">top</a></h2>
+
+        <p>Social Feed is an extension for the <a href="http://codecanyon.net/item/flow-gallery-html5-multimedia-gallery/10741414" target="_blank">Flow Gallery</a> jQuery plugin. This extension allows you to pull feeds from Facebook, Instagram, Dribbble and Pinterest in order to build your gallery. Note that all the settings of the Flow Gallery plugin can be used with this extension, and you need to have that plugin in order for this extension to work.</p>
+
+        <hr>
+
+
+        <h2 id="howto">B) How To Use - <a href="#toc">top</a></h2>
+
+        <h3 id="jsSetup">Javascript Setup</h3>
+
+        <p>Social Feed is an extension of the Flow Gallery jQuery plugin, and is itself a jQuery plugin, so in order to activate the plugin call it like this</p>
+
+<pre class="prettyprint lang-javascript">
+&lt;script&gt;
+     $(document).ready(function() {
+         $('#my-gallery').flowGallerySocialFeed();
+     });
+&lt;/script&gt;
+</pre>
+
+        <p>Here <code>#my-gallery</code> is the id of the container inside which the gallery will be embedded. Needless to say, you can use any id of your choice on the container. When you initialize the plugin then you can use any standard css selector, that jQuery allows, in place of an id.</p>
+
+        <p>Note here that we are calling the plugin after the document ready event fires. If you follow best practices and load all
+           the js files at the bottom of the html file, just before the closing body tag, then you don't need to use the document ready
+           event to call the plugin. If you just leave it at that the gallery will work just fine with the default settings. But of
+           course you want more options to customize! Calling the plugin with options of your choice is very simple, and it will look something like this
+        </p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').flowGallerySocialFeed({
+    option1: 'value1',
+    option2: 'value2',
+    option3: 'value3'
+});
+</pre>
+
+        <p>Below all the parameters the extension with their default values are listed.</p>
+
+<pre class="prettyprint lang-javascript">
+$('#my-gallery').flowGallerySocialFeed({
+    feed: 'facebook',
+    sortBy: ['title', 'date', 'likes'],
+    facebookOptions: {
+        accessToken: '',
+        sourceType: 'photos',
+        albumID: '',
+        userID: '',
+        limit: 30,
+        numberOfAlbums: 30
+    },
+    instagramOptions: {
+        accessToken: '',
+        sourceType: 'user',
+        userID: '',
+        tag: '',
+        limit: 30,
+        thumbSize: 'low_resolution'
+    },
+    dribbbleOptions: {
+        accessToken: '',
+        sourceType: 'user',
+        userID: '',
+        bucketID: '',
+        projectID: '',
+        listName: 'popular',
+        showAvatar: true,
+        limit: 30
+    },
+    pinterestOptions: {
+        sourceType: 'user',
+        userID: '',
+        boardID: '',
+        limit: 30
+    }
+});
+</pre>
+
+        <p>As mentioned before, you can pass <strong>ANY</strong> of the settings of the base Flow Gallery plugin when initializing the Social Feed extension. It is especially recommended that you enable the <strong>caching</strong> option of the Flow Gallery plugin because not only will that cache the data pulled from Facebook/Instagram/Dribbble/Pinterest and thus allow for faster subsequent loading of the gallery, but also allow you to prevent exceeding the API call limit that Facebook/Instagram/Dribbble/Pinterest impose.</p>
+
+        <p>The function of each extension parameter is described below.</p>
+
+
+        <h4>feed</h4>
+        <p>Here you can choose between <strong>facebook</strong>, <strong>instagram</strong>, <strong>dribbble</strong> or <strong>pinterest</strong> feed types.
+        </p>
+
+
+        <h4>sortBy</h4>
+        <p>This is an array of parameters based on which the gallery items can be sorted. The available parameters are <strong>title</strong>, <strong>date</strong> and <strong>likes</strong>. The "date" option lets you sort items by their post/upload date. Note that if you want to hide the Sort menu in the gallery menu bar then just pass an empty array, like this <code>sortBy: []</code>. An important thing to note is that there are differences in the available sort options for the various feed types. The available sorting values for the various feed types are listed below:</p>
+
+        <ul>
+            <li><strong>facebook</strong> &ndash; date, likes.</li>
+            <li><strong>instagram</strong> &ndash; date, likes.</li>
+            <li><strong>dribbble</strong> &ndash; title, date, likes, views.</li>
+            <li><strong>pinterest</strong> &ndash; title, likes.</li>
+        </ul>
+
+
+        <h4>facebookOptions</h4>
+        <p>A list of options when you choose to pull feeds from Facebook. Their functions are described as follows:</p>
+        <ul>
+            <li><strong>accessToken</strong> &ndash; Here you need to pass your access token for making calls to the Facebook API. The first step to obtaining an access token is registering as a developer on <a href="https://developers.facebook.com">https://developers.facebook.com</a>. After this you will need to create a new Facebook App. It is a simple process and you don't need to enter any data except for the name of the application. This will give you an App ID and an App Secret, which you can see from the "My Apps" page. Now go to <a href="https://developers.facebook.com/tools/explorer">https://developers.facebook.com/tools/explorer</a> and make sure to select the correct Application from the dropdown box at the top, and then click on "Get Access Token" and get a 'fresh' token. Here you will need to select the appropriate permissions for your purpose. The token that you just got is short lived and generally expires in about 1-2 hours. To get a long life token, which expires after 60 days, you need to enter the following url in your browser's address bar.<br><br>
+            <code>https://graph.facebook.com/oauth/access_token?grant_type=fb_exchange_token&client_id={app-id}&client_secret={app-secret}&fb_exchange_token={short-lived-token}</code>
+            <br><br>
+            Replace {app-id}, {app-secret} and {short-lived-token} with the three bits of info you have taken note of so far. When you run that url in your browser then you should get a response in the window that looks something like the following:<br><br>
+            <code>access_token=ABCD&expires=5184000</code>
+            <br><br>
+            <code>ABCD</code> (should be ~200 characters long) is your long life token.
+            </li>
+
+            <li><strong>sourceType</strong> &ndash; Here you can choose the type of feed that will be pulled from Facebook. The available options are <strong>photos</strong>, <strong>videos</strong>, <strong>album</strong> and <strong>albums</strong>.</li>
+
+            <li><strong>albumID</strong> &ndash; If your <code>sourceType</code> is <strong>album</strong> then you need to pass the id of that Facebook album to this parameter.</li>
+
+            <li><strong>userID</strong> &ndash; If your <code>sourceType</code> is <strong>photos</strong>, <strong>videos</strong>, or <strong>albums</strong> then in this parameter you can pass the id of that user, whose photos/videos/albums will be pulled by the plugin.</li>
+
+            <li><strong>limit</strong> &ndash; This parameter determines how many items will be pulled by the plugin from the Facebook feed.</li>
+
+            <li><strong>numberOfAlbums</strong> &ndash; If your <code>sourceType</code> is <strong>albums</strong> then this parameter determines how many albums will be pulled by the plugin from the Facebook feed.</li>
+        </ul>
+
+        <hr>
+
+
+        <h4>instagramOptions</h4>
+        <p>A list of options when you choose to pull feeds from Instagram. Their functions are described as follows:</p>
+
+        <ul>
+            <li><strong>accessToken</strong> &ndash; Here you need to pass your access token for making calls to the Instagram API. Please visit this page to see the steps for getting your access token - <a href="http://bobmckay.com/web/simple-tutorial-for-getting-an-instagram-clientid-and-access-token/">http://bobmckay.com/web/simple-tutorial-for-getting-an-instagram-clientid-and-access-token/</a></li>
+
+            <li><strong>sourceType</strong> &ndash; Here you can choose the type of feed that will be pulled from Instagram. The available options are <strong>user</strong>, <strong>tag</strong> and <strong>popular</strong>.</li>
+
+            <li><strong>userID</strong> &ndash; If your <code>source</code> is <strong>user</strong> then in this parameter you can pass the id of that user, whose photos will be pulled by the plugin.</li>
+
+            <li><strong>tag</strong> &ndash; If your <code>source</code> is <strong>tag</strong> then you need to pass the name of the tag based on which items will be pulled from Instagram.</li>
+
+            <li><strong>limit</strong> &ndash; This parameter determines how many items will be pulled by the plugin from the Instagram feed.</li>
+
+            <li><strong>thumbSize</strong> &ndash; This paramater allows to choose the size of the thumbnail images to be pulled from Instagram. The available options are <strong>thumbnail</strong> (150&times;150) and <strong>low_resolution</strong> (306&times;306)</li>
+        </ul>
+
+        <hr>
+
+
+        <h4>dribbbleOptions</h4>
+        <p>A list of options when you choose to pull feeds from Dribbble. Their functions are described as follows:</p>
+
+        <ul>
+            <li><strong>accessToken</strong> &ndash; Here you need to pass your access token for making calls to the Dribbble API. You will first need to register a new application at Dribbble by going to this page - <a href="https://dribbble.com/account/applications/new">https://dribbble.com/account/applications/new</a>. After you do that you will be presented with a Client Access Token, which is your access token for querying the Dribbble API.</li>
+
+            <li><strong>sourceType</strong> &ndash; Here you can choose the type of feed that will be pulled from Dribbble. The available options are <strong>user</strong>, <strong>list</strong>, <strong>bucket</strong> and <strong>project</strong>.</li>
+
+            <li><strong>userID</strong> &ndash; If your <code>sourceType</code> is <strong>user</strong> then in this parameter you can pass the id of that user, whose shots will be pulled by the plugin.</li>
+
+            <li><strong>bucketID</strong> &ndash; If your <code>sourceType</code> is <strong>bucket</strong> then you need to pass the id of that bucket to this parameter.</li>
+
+            <li><strong>projectID</strong> &ndash; If your <code>sourceType</code> is <strong>project</strong> then you need to pass the id of that project to this parameter.</li>
+
+            <li><strong>listName</strong> &ndash; If your <code>sourceType</code> is <strong>list</strong> then in this parameter you need to pass the name of that Dribbble list. The available options are <strong>debuts</strong>, <strong>everyone</strong>, <strong>popular</strong>, <strong>animated</strong>, <strong>teams</strong>, <strong>rebounds</strong>, <strong>playoffs</strong> and <strong>attachments</strong>.</li>
+
+            <li><strong>showAvatar</strong> &ndash; If your <code>sourceType</code> is not <strong>user</strong> then you can choose to show the avatars of the users (with their profile links) who posted the shots.</li>
+
+            <li><strong>limit</strong> &ndash; This parameter determines how many items will be pulled by the plugin from the Dribbble feed. Note that Dribbble sets a limit of 100 items per api call.</li>
+        </ul>
+
+
+        <hr>
+
+        <h4>pinterestOptions</h4>
+        <p>A list of options when you choose to pull feeds from Pinterest. Their functions are described as follows:</p>
+
+        <ul>
+            <li><strong>sourceType</strong> &ndash; Here you can choose the type of feed that will be pulled from Pinterest. the available options are <strong>user</strong> and <strong>board</strong>.</li>
+
+            <li><strong>userID</strong> &ndash; If your <code>sourceType</code> is <strong>user</strong> then in this parameter you can pass the id of that user, whose pins will be pulled by the plugin.</li>
+
+            <li><strong>boardID</strong> &ndash; If your <code>sourceType</code> is <strong>board</strong> then in this parameter you can pass the id of that board, whose pins will be pulled by the plugin.</li>
+
+            <li><strong>limit</strong> &ndash; This parameter determines how many items will be pulled by the plugin from the Pinterest feed. Note that Pinterest sets a limit of 100 items per api call.</li>
+        </ul>
+
+
+        <hr>
+
+
+        <h3 id="examples">Examples</h3>
+
+        <p>To pull latest 20 popular photos from Instagram initialize the extension like this.
+        </p>
+
+<pre class="prettyprint lang-javascript">
+$('#gallery').flowGallerySocialFeed({
+    feed: 'instagram',
+    instagramOptions: {
+        accessToken: 'abcdefgh',  // enter your access token here
+        sourceType: 'popular',
+        limit: 20
+    }
+});
+</pre>
+
+        <p>In order to show the first 10 albums for a user in Facebook write like this </p>
+
+<pre class="prettyprint lang-javascript">
+$('#gallery').flowGallerySocialFeed({
+    feed: 'facebook',
+    facebookOptions: {
+        accessToken: 'abcdefgh',  // enter your access token here
+        sourceType: 'albums',
+        userID: 'xyz',   // enter the correct user ID
+        numberOfAlbums: 10
+    }
+});
+</pre>
+
+
+        <hr>
+
+        <h2 id="css">C) CSS Files - <a href="#toc">top</a></h2>
+
+        <p>This extension includes one css file, <strong>flowgallery.socialfeed.css</strong>. It is recommended that you combine this css file with the css file of the base plugin, <strong>flowgallery.css</strong>, by putting the contents of the former at the end of the latter, since that will help you save an extra HTTP request when the page loads.</p>
+
+
+        <hr>
+
+
+        <h2 id="javascript">D) JavaScript Files - <a href="#toc">top</a></h2>
+
+        <p>There is only one javascript file, which is <strong>jquery.flowgallery.socialfeed.js</strong>. This file must be included in the page after the Flow Gallery jQuery plugin. A minified version of this extension is also provided.
+
+
+        <hr>
+
+
+
+        <p>I hope that you like this item and it makes your web page more stunning. If you find any bugs then don't hesitate to let me know. Also if you want to see some new features in this item or have any ideas to make the overall item much better then you can send me the details. All future updates are of course free !
+        </p>
+
+        <p>Once again, thank you so much for purchasing this item. As I said at the beginning, I'd be glad to help you if you have any questions relating to this item. No guarantees, but I'll do my best to assist. If you have a more general question relating to the items on Codecanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.
+        </p>
+
+        <p class="append-bottom alt large"><strong>Nilok Bose</strong></p>
+        <p><a href="#toc">Go To Table of Contents</a></p>
+
+        <hr class="space">
+    </div><!-- end div .container -->
+
+
+    <script type="text/javascript" src="assets/prettify/prettify.js"></script>
+    <script type="text/javascript">
+        prettyPrint();
+    </script>
+
+</body>
+</html>
