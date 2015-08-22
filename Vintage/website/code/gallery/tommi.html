@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<? php header('content-type: application/json; charset=utf-8');
+header("access-control-allow-origin: *"); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Vintage Tatouage et Coiffure - Tommi</title>
+
+    <meta name="description" content="Vintage Tatouage et coiffure Lévis, Saint-Romuald">
+    <meta name="author" content="CosmoCoder">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS  -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href="css/materialize.min.css" rel="stylesheet" />
+    <link href="mediaelement/mediaelementplayer.min.css" rel="stylesheet"  />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/flowgallery.css" rel="stylesheet" />
+
+</head>
+<body style="background:black;">
+
+
+    <div class="container">
+        <div class="section">
+            <h4 class="center">Portfolio - Tommi</h4>
+
+            <!-- Gallery container -->
+            <div id="gallery"></div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/salvattore-moox.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity.ui.js"></script>
+    <script src="js/jquery.finger.min.js"></script>
+    <script src="js/jquery.flowgallery.min.js"></script>
+    <script src="js/jquery.flowgallery.socialfeed.js"></script>
+    <script>
+    // $('#gallery').flowGallery({
+    //     gridType: 'columns',
+    //     columns: {320: 1, 480: 2, 720: 3, 960: 4, 1200: 5},
+    //     horizontalGutter: 10,
+    //     verticalGutter: 10,
+    //     albums: {style: 'tiled', enterAnimation: 'flipX'},
+    //     items: {style: 'tile', enterAnimation: 'whirl'},
+    //     captionShowAnimation: 'expand',
+    //     enableCache: false,
+    //     enableDeepLinking: false,
+    //     loadItemChunks: false,
+    //     youtubeAPIKey: 'abcd',  // enter your Youtube API key here
+    //     configUrl: 'config-albums.json'
+    // });
+    // ------------------
+
+     $(document).ready(function() {
+
+
+
+    $('#gallery').flowGallerySocialFeed({
+        feed: 'facebook',
+        sortBy: ['title', 'date', 'likes'],
+        facebookOptions: {
+            accessToken: 'CAAWs7toKHVQBAMplT3lWZCz0iy7ZBfXb1XgcrDURLVP8Vd8Iyyp604t3E1lX5a7ZA0lHZAAJopGNma8P9V6B1oWKsYtINYPhfSWTPLTdUCMgtUss5ycfcQGTabEbB97FyWqaJrxoqwv2l3fT21Tq82qzgm1eWOCoDKk3U5XzKwW5l02FsGMWm8yoqdgrbtAZD',
+            sourceType: 'album',
+            albumID: '416005175166126',
+            userID: '413211055445538',
+            gridType: 'columns',
+            captionShowAnimation: 'expand',
+            limit: 100,
+            loadItemChunks: false,
+            // numberOfAlbums: 100,
+            columns: {320: 1, 480: 2, 720: 3, 960: 4, 1200: 5},
+            configUrl: 'config-albums.json'
+        },
+    });
+    });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<? php header('content-type: application/json; charset=utf-8');
+header("access-control-allow-origin: *"); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Columns with tiles - Flow Gallery</title>
+
+    <meta name="description" content="Flow Gallery is a jQuery plugin to create grid based galleries to showcase  photo/audio/video">
+    <meta name="author" content="CosmoCoder">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS  -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <!-- <link href="css/materialize.min.css" rel="stylesheet" /> -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/flowgallery.css" rel="stylesheet" />
+
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="section">
+            <h4 class="center">Grid Type Columns</h4>
+
+            <!-- Gallery container -->
+            <div id="gallery"></div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/salvattore-moox.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity.ui.js"></script>
+    <script src="js/jquery.finger.min.js"></script>
+    <script src="js/jquery.flowgallery.min.js"></script>
+    <script src="js/jquery.flowgallery.socialfeed.js"></script>
+    <script>
+    // ------------------
+    $('#gallery').flowGallerySocialFeed({
+        feed: 'facebook',
+        gridType: 'columns',
+        columns: {320: 1, 480: 2, 720: 3, 960: 3, 1200: 3},
+        items: {style: 'tile'},
+        enableCache: false,
+        enableDeepLinking: false,
+        loadItemChunks: true,
+        loadChunksOnScroll: true,
+        showFileTypeIcons: false,
+        showFilterMenu: false,
+    rowItemMinWidth: 170,
+        facebookOptions: {
+            accessToken: 'CAAWs7toKHVQBAMplT3lWZCz0iy7ZBfXb1XgcrDURLVP8Vd8Iyyp604t3E1lX5a7ZA0lHZAAJopGNma8P9V6B1oWKsYtINYPhfSWTPLTdUCMgtUss5ycfcQGTabEbB97FyWqaJrxoqwv2l3fT21Tq82qzgm1eWOCoDKk3U5XzKwW5l02FsGMWm8yoqdgrbtAZD',
+            sourceType: 'album',
+            albumID: '477768278989815',
+            userID: '413211055445538',
+            limit: 100
+        },
+    });
+    </script>
+
+</body>
+</html>
