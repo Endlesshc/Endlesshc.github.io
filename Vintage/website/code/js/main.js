@@ -63,6 +63,12 @@ $(document).click(function(){
       $(".selected-service").text(formatted);
 });
 
+
+$(document).on('click', '#mobile-navigation' ,function(){
+      $('.hamburger').slideToggle(300);
+});
+
+
 // $(document).on('click', function(){
 //   if ($('.nl-dd-checked').text == 'de tatouages'){
 //     $('form#contact-form').attr('action', '/send_form_tommi.php');

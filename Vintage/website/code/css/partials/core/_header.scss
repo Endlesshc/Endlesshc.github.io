@@ -17,6 +17,12 @@ body {
 	top:0;
 	z-index:10;
 }
+#mobile-navigation{
+      position: fixed;
+      top: -36px;
+      right: 0;
+      display:none;
+}
 nav a {
 	position: relative;
 	display: inline-block;
@@ -137,7 +143,7 @@ nav a:focus {
 	.hamburger{
 		position:absolute;
 		right:0;
-		width:50%;
+		width:80%;
 		top:70px;
 		background:rgba(0,0,0, 1);
 		height:100vh;
@@ -192,92 +198,112 @@ nav .cl-effect-17 {
 		padding-top:40px;
 	}
 }
-$base : 1rem;
-$space : $base/4;
-$color : #ecf0f1;
-$transition: .3s;// increase this to see the transformations happen in slow motion
-
-.grid-button {
-  padding: $base*2; //2rem
-  cursor: pointer;
-  user-select: none;
+/* ====================== lines button ==================================================*/
+.lines-button {
+ padding: 2rem 1rem;
+ transition: .3s;
+ cursor: pointer;
+ user-select: none;
+ border-radius: 0.57143rem;
+ /* */
 }
-.grid-button .grid{
-    width: $base;
-    height: $base;
-    background: $color;
-    color: $color; /* Not in use when the colors are specified below */
-    transition: $transition;
+.lines-button:hover {
+ opacity: 1;
 }
-.grid-button.rearrange .grid{
-    box-shadow:
-      -($base+$space) 0 -($base+$space),
-      0 0 -($base+$space),
-      ($base+$space) (-($base + $space)),
-      -($base+$space) 0,
-      $base+$space 0,
-      -($base+$space) ($base + $space),
-      0 ($base+$space),
-      ($base+$space) ($base + $space);
-
+.lines-button:active {
+ transition: 0;
+ outline:none;
 }
-.grid-button.rearrange.close .grid{
-      box-shadow:
-        0 0 -$base,
-        0 0 -$base*2,
-        $base 0,
-        -$base*2 0,
-        $base*2 0,
-        -$base 0,
-        0 $base*2,
-        0 $base;
-      transform: rotate3d(0,0,1,-45deg)  scale3d(.8,.8,.8);
-}
-button {
-  display: inline-block;
-  margin: 0 1em;
-  border: none;
-  background: none;
-  &:focus{
-        outline:none !important;
- }
-}
-button span {
-  display: block;
+.lines-button:focus{
+      outline:none;
 }
 
-.grid-button {
-  padding: 2rem;
-  cursor: pointer;
-  user-select: none;
+.lines {
+ display: inline-block;
+ width: 30px;
+ height: 4px;
+ background: $blue;
+ border-radius: 0.28571rem;
+ transition: 0.3s;
+ position: relative;
+ margin:0 auto;
+}
+.lines:before, .lines:after {
+ display: inline-block;
+ width: 23px;
+ height: 4px;
+ background: $blue;
+ border-radius: 0.28571rem;
+ transition: 0.3s;
+ position: absolute;
+ left: 0;
+ content: '';
+ -webkit-transform-origin: 0.28571rem center;
+ transform-origin: 0.28571rem center;
+ margin:0 auto;
+}
+.lines:before {
+ top: 9px;
+ right:1px;
+}
+.lines:after {
+ top: -9px;
+ right:1px;
 }
 
-.grid-button .grid {
-  width: 1rem;
-  height: 1rem;
-  background: #ecf0f1;
-  color: #ecf0f1;
-  /* Not in use when the colors are specified below */
-  transition: 0.3s;
+.lines-button:hover .lines:before {
+ background:white;
+}
+.lines-button:hover .lines:after {
+ background:white;
+}
+.lines-button:hover .lines{
+      background:white;
 }
 
-.grid-button.close .grid {
-  -webkit-transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
-  transform: rotate3d(0, 0, 1, -45deg) scale3d(0.8, 0.8, 0.8);
+.lines-button.open {
+ -webkit-transform: scale3d(0.8, 0.8, 0.8);
+ transform: scale3d(0.8, 0.8, 0.8);
 }
 
-.grid-button.rearrange .grid {
-  box-shadow: -1.25rem -1.25rem, 0 -1.25rem, 1.25rem -1.25rem, -1.25rem 0, 1.25rem 0, -1.25rem 1.25rem, 0 1.25rem, 1.25rem 1.25rem;
-}
 
-.grid-button.rearrange.close .grid {
-  box-shadow: 0 -1rem, 0 -2rem, 1rem 0, -2rem 0, 2rem 0, -1rem 0, 0 2rem, 0 1rem;
-}
 
-.grid-button.collapse .grid {
-  box-shadow: -1.25rem 0, -1.25rem 1.25rem, 1.25rem 0, 1.25rem -1.25rem, 0 -1.25rem, -1.25rem -1.25rem, 0 1.25rem, 1.25rem 1.25rem;
+.lines-button.x.open .lines {
+ background: transparent;
 }
+.lines-button.x.open .lines:before, .lines-button.x.open .lines:after {
+ -webkit-transform-origin: 50% 50%;
+ transform-origin: 50% 50%;
+ top: 0;
+ width: 4rem;
+}
+.lines-button.x.open .lines:before {
+ -webkit-transform: rotate3d(0, 0, 1, 45deg);
+ transform: rotate3d(0, 0, 1, 45deg);
+ height:4px;
+}
+.lines-button.x.open .lines:after {
+ -webkit-transform: rotate3d(0, 0, 1, -45deg);
+ transform: rotate3d(0, 0, 1, -45deg);
+ height:4px;
+}
+.lines-button.x.close .lines{
 
-.grid-button.collapse.close .grid {
-  box-shadow: -1rem 0, 0 0 transparent, 1rem 0, 0 0 transparent, 0 -1rem, 0 0 transparent, 0 1rem, 0 0 transparent;
+    /*hide the middle line*/
+    background: transparent;
+
+    /*overlay the lines by setting both their top values to 0*/
+    &:before, &:after{
+      transform-origin: 50% 50%;
+      top:0;
+      width: 23px;
+    }
+
+    // rotate the lines to form the x shape
+    &:before{
+      transform: rotate3d(0,0,1,45deg);
+    }
+    &:after{
+      transform: rotate3d(0,0,1,-45deg);
+    }
 }

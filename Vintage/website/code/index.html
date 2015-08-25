@@ -76,19 +76,18 @@
             <a href="coiffure.html">Esthétique</a>
             <a href="index.html#contact-us">Contact</a>
         </nav>
-        <div class="hamburger">
+        <div class="hamburger" style="display:none;">
 		<nav class="cl-effect-17">
 			<a href="#" class="nav-home">Accueil</a>
 			<a href="#" class="nav-demo">Tatouage</a>
 			<a href="#" class="nav-app">Coiffure</a>
 			<a href="#" class="nav-testimonials">Esthétique</a>
 			<a href="#" class="nav-about">Contact</a>
-
-                  <button class="grid-button rearrange" type="button" role="button" aria-label="Toggle Navigation" >
-                        <span class="grid"></span>
-                  </button>
 		</nav>
 	</div>
+      <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x osm-menuButton" id="mobile-navigation">
+            <span class="lines"></span>
+      </button>
     </section>
         <h1><i class="icon-logo-flat"></i></h1>
     </header>
@@ -252,7 +251,7 @@
 </body>
 
 <script>
-    new WOW().init();
+
   var anchor = document.querySelectorAll('button');
 
   [].forEach.call(anchor, function(anchor){
