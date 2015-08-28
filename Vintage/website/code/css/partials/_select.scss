@@ -73,6 +73,7 @@
 .nl-field ul {
 	position: absolute;
 	visibility: hidden;
+	display:none;
 	background: $dark-gray;
 	left: -0.5em;
 	top: 50%;
@@ -95,6 +96,7 @@
 	-webkit-transition: visibility 0s 0s, opacity 0.3s, -webkit-transform 0.3s;
 	-moz-transition: visibility 0s 0s, opacity 0.3s, -moz-transform 0.3s;
 	transition: visibility 0s 0s, opacity 0.3s, transform 0.3s;
+	display:block;
 }
 
 .nl-field ul li {
