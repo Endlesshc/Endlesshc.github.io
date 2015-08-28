@@ -1114,6 +1114,15 @@ and (-webkit-min-device-pixel-ratio: 1)  {
       .non-responsive-featured{
             display:none;
       }
+      #description {
+            padding:40px 10px 10px 10px !important;
+            p{
+                 font-size:16px !important;
+                 font-weight:400 !important;
+                 max-width:100% !important;
+                 line-height: 24px !important;
+            }
+      }
 }
 
 
