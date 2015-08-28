@@ -107,24 +107,6 @@ nav a:focus {
 		pointer-events: none;
 	}
 
-	// .cl-effect-17 a::after {
-	// 	content: '';
-	// 	position: absolute;
-	// 	left: 40px;
-	// 	bottom: 0;
-	// 	width: 70%;
-	// 	height: 2px;
-	// 	background: $light-blue;
-	// 	opacity: 0;
-	// 	-webkit-transform: translateY(5px);
-	// 	-moz-transform: translateY(5px);
-	// 	transform: translateY(5px);
-	// 	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
-	// 	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
-	// 	transition: transform 0.3s, opacity 0.3s;
-	// 	pointer-events: none;
-	// }
-
 	.cl-effect-17 a:hover::before,
 	.cl-effect-17 a:focus::before {
 		opacity: 0;
@@ -222,7 +204,7 @@ nav .cl-effect-17 {
  display: inline-block;
  width: 30px;
  height: 4px;
- background: $blue;
+ background: $white;
  border-radius: 0.28571rem;
  transition: 0.3s;
  position: relative;
@@ -232,7 +214,7 @@ nav .cl-effect-17 {
  display: inline-block;
  width: 23px;
  height: 4px;
- background: $blue;
+ background: $white;
  border-radius: 0.28571rem;
  transition: 0.3s;
  position: absolute;
@@ -252,13 +234,13 @@ nav .cl-effect-17 {
 }
 
 .lines-button:hover .lines:before {
- background:white;
+ background:$red;
 }
 .lines-button:hover .lines:after {
- background:white;
+ background:$red;
 }
 .lines-button:hover .lines{
-      background:white;
+      background:$red;
 }
 
 .lines-button.open {
