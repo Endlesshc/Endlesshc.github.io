@@ -118,7 +118,7 @@ $(document).on('click',function(){
 // /////////////////////////////////////////////////////////////////////
 $(document).on('click',function(){
       if($('.nl-field-toggle:contains("de tatouages")').length) {
-            $('.tattoo-select-wrapper').fadeIn(300);
+            $('.tattoo-select-wrapper').show();
             $('.haircuts-select-wrapper').hide();
       }
 });
