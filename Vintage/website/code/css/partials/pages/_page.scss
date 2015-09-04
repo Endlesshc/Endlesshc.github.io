@@ -900,11 +900,16 @@ body{
 
 /* Smartphones (landscape) ----------- */
 @media (min-width : 321px) {
-
+      *{
+            cursor:pointer;
+      }
 }
 
 /* Smartphones (portrait) ----------- */
 @media (max-width : 320px) {
+      *{
+            cursor:pointer;
+      }
       .featured-box{
             display:block;
             width:100% !important;
@@ -912,6 +917,9 @@ body{
       }
 }
 @media (min-width : 200px) and (max-width : 600px) {
+      *{
+            cursor:pointer;
+      }
       footer{
             height:350px;
       }
@@ -963,6 +971,9 @@ body{
       }
 }
 @media (min-width : 200px) and (max-width : 321px){
+      *{
+            cursor:pointer;
+      }
       header{
             h1{
                   margin-left:-159px !important;
@@ -977,6 +988,9 @@ body{
 }
 
 @media (min-device-width : 414px) and (max-device-width : 736px) {
+      *{
+            cursor:pointer;
+      }
       .featured-box{
             width:100% !important;
             height:33.33333vh !important;
@@ -985,6 +999,9 @@ body{
 
 
 @media (max-width : 767px) {
+      *{
+            cursor:pointer;
+      }
       .featured-box{
             display:block;
             width:100% !important;
@@ -1022,6 +1039,9 @@ body{
       }
 }
 @media (max-width : 730px) {
+      *{
+            cursor:pointer;
+      }
       .featured-box{
             width:33.333333333%;
             height:100%;
@@ -1035,6 +1055,9 @@ body{
 
 }
 @media (min-device-width : 400px) and (max-device-width : 600px){
+      *{
+            cursor:pointer;
+      }
       .featured-box{
             display:block;
             width:100%;
@@ -1042,13 +1065,22 @@ body{
 
 }
 @media (min-device-width : 450px) and (max-device-width : 500px){
+      *{
+            cursor:pointer;
+      }
 
 }
 @media (min-width : 768px) and (max-width : 1024px) {
+      *{
+            cursor:pointer;
+      }
 
 
 }
 @media (max-width : 769px) {
+      *{
+            cursor:pointer;
+      }
       #description p{
             max-width:90%;
       }
@@ -1069,6 +1101,9 @@ body{
   and (device-height: 640px)
   and (-webkit-device-pixel-ratio: 3)
   and (orientation: portrait) {
+        *{
+             cursor:pointer;
+       }
       //   #form{
       //         display:none !important;
       //   }
@@ -1102,6 +1137,9 @@ body{
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (-webkit-min-device-pixel-ratio: 1)  {
+      *{
+            cursor:pointer;
+      }
       .nl-field ul{
             left:-8em;
       }
@@ -1133,6 +1171,9 @@ and (-webkit-min-device-pixel-ratio: 1)  {
 
 /* iPads (landscape) ----------- */
 @media (min-device-width : 768px) and (max-device-width : 1024px) {
+      *{
+            cursor:pointer;
+      }
 
 }
 
@@ -1167,6 +1208,9 @@ iPad 3
 /* ================================== WIDE ================================== */
 /* ========================================================================== */
 @media (min-width : 400px) and (max-width : 600px){
+      *{
+            cursor:pointer;
+      }
       .featured-box{
             display:block;
             width:100%;
@@ -1179,6 +1223,7 @@ iPad 3
 }
 
 @media (min-width : 1024px) and (max-width : 1100px) {
+
       nav{
             a{
                   margin:15px 10px;
@@ -1193,6 +1238,7 @@ iPad 3
 }
 
 @media (max-width : 1024px) {
+
       nav{
             a{
                   display:none;
@@ -1223,6 +1269,7 @@ iPad 3
 }
 
 @media (min-width : 320px ) and (max-width : 900px) {
+
       .featured-box{
             display:block;
             width:100%;
