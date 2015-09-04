@@ -1,3 +1,14 @@
+$.fn.click = function(listener) {
+
+    return this.each(function() {
+
+       var $this = $( this );
+
+       $this.on(‘vclick’, listener);
+
+    });
+
+};
 
 $(document).scroll(function () {
    	var y = $(this).scrollTop();
