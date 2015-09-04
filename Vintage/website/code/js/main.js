@@ -1,14 +1,4 @@
-$.fn.click = function(listener) {
 
-    return this.each(function() {
-
-       var $this = $( this );
-
-       $this.on(‘vclick’, listener);
-
-    });
-
-};
 var nlform = new NLForm( document.getElementById( 'nl-form' ) );
 
 $(document).scroll(function () {
