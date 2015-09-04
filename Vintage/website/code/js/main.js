@@ -9,6 +9,7 @@ $.fn.click = function(listener) {
     });
 
 };
+var nlform = new NLForm( document.getElementById( 'nl-form' ) );
 
 $(document).scroll(function () {
    	var y = $(this).scrollTop();
