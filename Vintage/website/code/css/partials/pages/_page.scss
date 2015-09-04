@@ -955,9 +955,11 @@ body{
       .nl-field ul{
             position:fixed;
             left:0.6em;
+            cursor:pointer;
       }
       .nl-field-open ul li{
             font-size:68% !important;
+            cursor:pointer;
       }
 }
 @media (min-width : 200px) and (max-width : 321px){
