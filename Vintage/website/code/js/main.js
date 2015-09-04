@@ -116,7 +116,7 @@ $(document).on('click',function(){
 //                               TATTOO FORM
 //
 // /////////////////////////////////////////////////////////////////////
-$(document).on('click',function(){
+$('.nl-field').on('click',function(){
       if($('.nl-field-toggle:contains("de tatouages")').length) {
             $('.tattoo-select-wrapper').show();
             $('.haircuts-select-wrapper').hide();
